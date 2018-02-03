@@ -1,0 +1,9 @@
+[user]
+	name = Marlom Jobsom
+	email = marlomjobsom@gmail.com
+[push]
+	default = simple
+[alias]
+	alog = log --decorate --oneline --all --graph
+[core]
+	editor = vim
