@@ -23,7 +23,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'brooth/far.vim'
-Plug 'tweekmonster/braceless.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'heavenshell/vim-pydocstring'
 
@@ -122,9 +121,6 @@ let g:tmuxline_preset = {
 
 " tpope/vim-fugitive
 set statusline+=%{fugitive#statusline()}
-
-" braceless.vim
-autocmd FileType python BracelessEnable +indent +fold
 
 " airblade/vim-gitgutter
 nmap <Leader>gha <Plug>GitGutterStageHunk
