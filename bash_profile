@@ -11,7 +11,6 @@ export PATH=${PATH}:$HOME/Android/Sdk/build-tools/23.0.3
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
