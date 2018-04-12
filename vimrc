@@ -25,6 +25,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'brooth/far.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'heavenshell/vim-pydocstring'
+Plug 'mattn/emmet-vim'
 
 " Themes
 Plug 'jacoborus/tender'
@@ -64,6 +65,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'python': ['pylint'],
+\   'xml': ['xmllint'],
+\   'html': ['htmlhint'],
+\   'javascript': ['eslint'],
+\   'css': ['csslint'],
 \}
 
 " nerdtree
