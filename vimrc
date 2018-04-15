@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --js-completer' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
@@ -23,9 +23,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'brooth/far.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'mattn/emmet-vim'
+Plug 'elzr/vim-json'
 
 " Themes
 Plug 'jacoborus/tender'
@@ -136,6 +136,9 @@ nmap [gh <Plug>GitGutterPrevHunk
 
 " heavenshell/vim-pydocstring
 nmap <silent> <C-_> <Plug>(pydocstring)
+
+" elzr/vim-json
+let g:vim_json_syntax_conceal = 0
 
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
