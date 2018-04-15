@@ -26,11 +26,10 @@ Plug 'brooth/far.vim'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json'
+Plug 'jiangmiao/auto-pairs'
 
 " Themes
 Plug 'jacoborus/tender'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'rakr/vim-two-firewatch'
 
 " Initialize plugin system
 call plug#end()
@@ -156,7 +155,11 @@ set number
 set relativenumber
 
 " Enable omni completion
-set omnifunc=syntaxcomplete#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 set completeopt=longest,menuone
 
 " Auto-reload file edited out from vim
