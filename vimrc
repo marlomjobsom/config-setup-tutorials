@@ -27,6 +27,8 @@ Plug 'heavenshell/vim-pydocstring'
 Plug 'mattn/emmet-vim'
 Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ternjs/tern_for_vim'
+Plug 'heavenshell/vim-jsdoc'
 
 " Themes
 Plug 'jacoborus/tender'
@@ -138,6 +140,17 @@ nmap <silent> <C-_> <Plug>(pydocstring)
 
 " elzr/vim-json
 let g:vim_json_syntax_conceal = 0
+
+"ternjs/tern_for_vim
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_hold'
+
+" heavenshell/vim-jsdoc
+let g:jsdoc_allow_input_prompt=1
+let g:jsdoc_allow_shorthand=1
+let g:jsdoc_enable_es6=1
+let g:jsdoc_access_descriptions=1
+let g:jsdoc_underscore_private=1
 
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
