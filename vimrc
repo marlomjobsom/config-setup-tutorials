@@ -29,6 +29,7 @@ Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ternjs/tern_for_vim'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Themes
 Plug 'jacoborus/tender'
@@ -151,6 +152,20 @@ let g:jsdoc_allow_shorthand=1
 let g:jsdoc_enable_es6=1
 let g:jsdoc_access_descriptions=1
 let g:jsdoc_underscore_private=1
+
+" Xuyuanp/nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
