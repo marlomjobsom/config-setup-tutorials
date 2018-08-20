@@ -22,7 +22,7 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 
 # GOPATH
 export GOROOT=/opt/go
-export GOPATH=$HOME/Workspace/golang/src
+export GOPATH=$HOME/Workspace/golang
 export PATH=$PATH:$PATH:$GOROOT/bin:$GOPATH/bin
 
 # NVM
