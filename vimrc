@@ -1,108 +1,55 @@
 " -----------------------------------------------------------------------------
-" PLUGINS CONFIGURATION
+" PLUGINS INSTALLATION
 " -----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --js-completer' }
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-surround'
-Plug 'szw/vim-tags'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" General
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'edkolev/tmuxline.vim'
-Plug 'brooth/far.vim'
-Plug 'heavenshell/vim-pydocstring'
-Plug 'mattn/emmet-vim'
-Plug 'elzr/vim-json'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ternjs/tern_for_vim'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
 
-" Themes
+" Language Support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --java-completer --js-completer' }
+
+" Appearance
 Plug 'jacoborus/tender'
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-" Initialize plugin system
 call plug#end()
 
-" YouCompleteMe
-let g:ycm_python_binary_path = 'python'
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_use_ultisnips_completer = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" -----------------------------------------------------------------------------
+" PLUGINS CONFIGURATION
+" -----------------------------------------------------------------------------
 
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'ubaryd'
-set laststatus=2
-set t_Co=256
+" fatih/vim-go
+let g:go_textobj_include_function_doc = 1
+let g:go_addtags_transform = 'camelcase'
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = ['golint']
+let g:go_metalinter_autosave = 1
 
-" identLine
-let g:indentLine_color_term = 236
-let g:indentLine_enabled = 1
-let g:indentLine_char = '┊'
-
-" ale
-let g:ale_sign_column_always = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_linters = {
-\   'python': ['pylint'],
-\   'xml': ['xmllint'],
-\   'html': ['htmlhint'],
-\   'javascript': ['eslint'],
-\   'css': ['csslint'],
-\}
-
-" nerdtree
-noremap <F2> :NERDTreeToggle<CR>
-noremap <leader>w :NERDTreeFind<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$']
-
-" vim-tags
-let g:vim_tags_auto_generate = 1
-
-" ultisnips
-let g:UltiSnipsExpandTrigger = "<C-l>"
-let g:UltiSnipsJumpForwardTrigger = "<C-k>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
-
-" fzf
+" junegunn/fzf
 set rtp+=~/.fzf
-noremap <leader>f :Files<CR>
-noremap <leader>a :Ag<CR>
-noremap <leader>t :BTags<CR>
-noremap <leader>T :Tags<CR>
-noremap <leader>l :BLines<CR>
-noremap <leader>L :Lines<CR>
-noremap <leader>C :Commits<CR>
-noremap <leader>b :Buffers<CR>
-imap <C-x><C-w> <plug>(fzf-complete-word)
-imap <C-x><C-p> <plug>(fzf-complete-path)
-imap <C-x><C-f> <plug>(fzf-complete-file-ag)
-imap <C-x><C-l> <plug>(fzf-complete-line)
-inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_tags_command = 'ctags -R'
+let g:fzf_tags_command = 'ctags --fields=+l -R'
 let g:fzf_colors =
     \ { 'fg':    ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -117,7 +64,36 @@ let g:fzf_colors =
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
 
-" tmuxline
+" edkolev/tmuxline.vim
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+" w0rp/ale
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
+let g:ale_linters = {
+\   'python': ['pylint'],
+\   'go': ['golint'],
+\   'xml': ['xmllint'],
+\   'html': ['htmlhint'],
+\   'javascript': ['eslint'],
+\   'css': ['csslint'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" SirVer/ultisnips
+let g:UltiSnipsExpandTrigger = '<C-l>'
+let g:UltiSnipsJumpForwardTrigger = '<C-k>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-j>'
+
+" edkolev/tmuxline.vim
 let g:tmuxline_preset = {
     \'a'    : '#S',
     \'win'  : '#I #W',
@@ -126,32 +102,32 @@ let g:tmuxline_preset = {
     \'z'    : '#H',
     \ 'options': {'status-justify': 'left'}}
 
-" tpope/vim-fugitive
-set statusline+=%{fugitive#statusline()}
+" vim-airline/vim-airline
+set laststatus=2
+set t_Co=256
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'ubaryd'
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n' : 'N',
+      \ 'i' : 'I',
+      \ 'R' : 'R',
+      \ 'c' : 'C',
+      \ 'v' : 'V',
+      \ 'V' : 'V',
+      \ 's' : 'S',
+      \ 'S' : 'S',
+      \ }
 
-" airblade/vim-gitgutter
-nmap <Leader>gha <Plug>GitGutterStageHunk
-nmap <Leader>ghr <Plug>GitGutterUndoHunk
-nmap <Leader>ghv <Plug>GitGutterPreviewHunk
-nmap ]gh <Plug>GitGutterNextHunk
-nmap [gh <Plug>GitGutterPrevHunk
-
-" heavenshell/vim-pydocstring
-nmap <silent> <C-_> <Plug>(pydocstring)
-
-" elzr/vim-json
-let g:vim_json_syntax_conceal = 0
-
-"ternjs/tern_for_vim
-let g:tern_map_keys=1
-let g:tern_show_argument_hints='on_hold'
-
-" heavenshell/vim-jsdoc
-let g:jsdoc_allow_input_prompt=1
-let g:jsdoc_allow_shorthand=1
-let g:jsdoc_enable_es6=1
-let g:jsdoc_access_descriptions=1
-let g:jsdoc_underscore_private=1
+" Valloric/YouCompleteMe
+let g:ycm_python_binary_path = 'python'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " Xuyuanp/nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
@@ -171,6 +147,30 @@ let g:NERDTreeIndicatorMapCustom = {
 " VIM INTERNAL CONFIGURATION
 " -----------------------------------------------------------------------------
 
+" Load the plugin for specific file types
+filetype plugin on
+
+" Sync vim's clipboard with X11 system without use registers
+set clipboard=unnamed
+set clipboard=unnamedplus
+
+" Enable numeration lines
+set number
+set relativenumber
+
+" Incremental search
+set incsearch
+
+" Enable color syntax highlight
+syntax enable
+
+" Set spaces character
+set listchars=tab:»\ ,trail:·,nbsp:·,extends:>,precedes:<
+set list
+
+" Set Theme
+colorscheme tender
+
 " Set identation
 set expandtab
 set tabstop=4
@@ -178,74 +178,52 @@ set softtabstop=4
 set shiftwidth=4
 set textwidth=100
 
-" Enable numeration lines
-set number
-set relativenumber
-
-" Enable omni completion
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-set completeopt=longest,menuone
-
-" Auto-reload file edited out from vim
-set autoread
-
-" Set Color Column
-set cc=101
-hi ColorColumn ctermbg=235
-
-" Set the terminal title to the current file
-set title
-
-" Incremental search
-set incsearch
-
-" Set Theme
-colorscheme tender
-
-" Set spaces character
-set listchars=tab:»\ ,trail:·,nbsp:·,extends:>,precedes:<
-set list
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Set disable autocomment
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Enable color syntax highlight
-syntax enable
-
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
+" Search down into subfolders and provides completion for file-related tasks
 set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
 set wildmode=list:longest,full
+"
+" Set utf8 as standard encoding 
+set encoding=utf8
 
-" Sync vim's clipboard with X11 system without use registers
-set clipboard=unnamed
-set clipboard=unnamedplus
+" Disable autocomment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " -----------------------------------------------------------------------------
-" VIM SHORCUTS
+" SHORCUTS
 " -----------------------------------------------------------------------------
 
-" MAP: Moving between buffers
+" SHORTCUT: Moving between buffers
 :noremap bn :bnext<CR>
 :noremap bp :bprevious<CR>
 
-" MAP: Relative moving tabs
-function RelativeNext(count)
-    let total_tabs = tabpagenr("$")
-    let cur_tab = tabpagenr()
-    let next_tab = (cur_tab + a:count -1) % total_tabs + 1
-    exec "tabnext" .  next_tab
-endfunction
-command -count=1 TabNext call RelativeNext(<count>)
-map gt :TabNext<CR>
+" SHORTCUT: fatih/vim-go
+autocmd FileType go nmap <leader>r <Plug>(go-run)
 
+" SHORTCUT: w0rp/ale
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" SHORTCUT: junegunn/fzf
+noremap <leader>f :Files<CR>
+noremap <leader>a :Ag<CR>
+noremap <leader>t :BTags<CR>
+noremap <leader>T :Tags<CR>
+noremap <leader>l :BLines<CR>
+noremap <leader>L :Lines<CR>
+noremap <leader>C :Commits<CR>
+noremap <leader>b :Buffers<CR>
+imap <C-x><C-w> <plug>(fzf-complete-word)
+imap <C-x><C-p> <plug>(fzf-complete-path)
+imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+imap <C-x><C-l> <plug>(fzf-complete-line)
+inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
+
+" SHORTCUT: Valloric/YouCompleteMe
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" SHORTCUT: edkolev/tmuxline.vim
+noremap <F2> :NERDTreeToggle<CR>
+noremap <leader>w :NERDTreeFind<CR>
