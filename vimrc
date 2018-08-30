@@ -108,7 +108,7 @@ set laststatus=2
 set t_Co=256
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'ubaryd'
+let g:airline_theme = 'atomic'
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'n' : 'N',
@@ -145,7 +145,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " ayu-theme/ayu-vim
-let ayucolor="light"
+let ayucolor="mirage"
 
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
