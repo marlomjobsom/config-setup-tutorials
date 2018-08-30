@@ -25,7 +25,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go
 
 " Appearance
 Plug 'jacoborus/tender'
-Plug 'ayu-theme/ayu-vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -108,7 +107,7 @@ set laststatus=2
 set t_Co=256
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'atomic'
+let g:airline_theme = 'ubaryd'
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'n' : 'N',
@@ -144,9 +143,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" ayu-theme/ayu-vim
-let ayucolor="mirage"
-
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
 " -----------------------------------------------------------------------------
@@ -173,8 +169,7 @@ set listchars=tab:»\ ,trail:·,nbsp:·,extends:>,precedes:<
 set list
 
 " Set Theme
-colorscheme ayu
-set termguicolors
+colorscheme tender
 
 " Set identation
 set expandtab
@@ -189,7 +184,7 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 set wildmode=list:longest,full
-"
+
 " Set utf8 as standard encoding 
 set encoding=utf8
 
