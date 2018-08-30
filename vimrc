@@ -25,6 +25,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go
 
 " Appearance
 Plug 'jacoborus/tender'
+Plug 'ayu-theme/ayu-vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -143,6 +144,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" ayu-theme/ayu-vim
+let ayucolor="light"
+
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
 " -----------------------------------------------------------------------------
@@ -169,7 +173,8 @@ set listchars=tab:»\ ,trail:·,nbsp:·,extends:>,precedes:<
 set list
 
 " Set Theme
-colorscheme tender
+colorscheme ayu
+set termguicolors
 
 " Set identation
 set expandtab
