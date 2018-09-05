@@ -13,7 +13,6 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 eval "$(pyenv init -)"
 
 # FZF
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND='ag -p $HOME/.agignore -g ""'
 
