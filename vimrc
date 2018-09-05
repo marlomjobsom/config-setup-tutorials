@@ -21,7 +21,9 @@ Plug 'tpope/vim-fugitive'
 " Language Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --java-completer --js-completer' }
+Plug 'Valloric/YouCompleteMe', {
+    \'do': 'python install.py --clang-completer --go-completer --js-completer'
+    \}
 
 " Appearance
 Plug 'jacoborus/tender'
@@ -70,7 +72,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " w0rp/ale
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
-let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_pattern_options = {
 \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
@@ -103,10 +104,14 @@ let g:tmuxline_preset = {
     \ 'options': {'status-justify': 'left'}}
 
 " vim-airline/vim-airline
-set laststatus=2
-set t_Co=256
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'ubaryd'
 let g:airline_mode_map = {
       \ '__' : '-',
@@ -171,6 +176,11 @@ set list
 " Set Theme
 colorscheme tender
 
+" Set Color Column
+set cc=101
+set laststatus=2
+hi ColorColumn ctermbg=236
+
 " Set identation
 set expandtab
 set tabstop=4
@@ -185,7 +195,7 @@ set path+=**
 set wildmenu
 set wildmode=list:longest,full
 
-" Set utf8 as standard encoding 
+" Set utf8 as standard encoding
 set encoding=utf8
 
 " Disable autocomment
