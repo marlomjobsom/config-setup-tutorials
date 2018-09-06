@@ -17,6 +17,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Language Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -192,7 +193,6 @@ set textwidth=100
 set path+=**
 
 " Display all matching files when we tab complete
-set wildmenu
 set wildmode=list:longest,full
 
 " Set utf8 as standard encoding
