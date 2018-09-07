@@ -18,13 +18,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'brooth/far.vim'
 
 " Language Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', {
-    \'do': 'python install.py --clang-completer --go-completer --js-completer'
-    \}
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --js-completer' }
 
 " Appearance
 Plug 'jacoborus/tender'
@@ -105,26 +104,42 @@ let g:tmuxline_preset = {
     \ 'options': {'status-justify': 'left'}}
 
 " vim-airline/vim-airline
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_symbols = {}
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.crypt = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = ''
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'ubaryd'
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline_section_z = '%#__accent_bold#%l%#__restore__#%#__accent_bold#/%L%#__restore__#:%v'
+let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
 let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n' : 'N',
-      \ 'i' : 'I',
-      \ 'R' : 'R',
-      \ 'c' : 'C',
-      \ 'v' : 'V',
-      \ 'V' : 'V',
-      \ 's' : 'S',
-      \ 'S' : 'S',
-      \ }
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ 't'  : 'T',
+    \ }
 
 " Valloric/YouCompleteMe
 let g:ycm_python_binary_path = 'python'
