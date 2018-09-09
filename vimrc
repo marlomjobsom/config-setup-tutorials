@@ -118,15 +118,16 @@ let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.whitespace = ''
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'ubaryd'
-let g:airline#extensions#fugitiveline#enabled = 1
-let g:airline_section_z = '%#__accent_bold#%l%#__restore__#%#__accent_bold#/%L%#__restore__#:%v'
-let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
+let g:airline_section_c = '%{airline#util#wrap(airline#parts#readonly(),0)}%'
+let g:airline_section_x = ''
+let g:airline_section_z = '%l/%L:%v'
 let g:airline_mode_map = {
     \ '__' : '-',
     \ 'n'  : 'N',
@@ -151,19 +152,30 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_autoclose_preview_window_after_completion=1
 
-" Xuyuanp/nerdtree-git-plugin
+" scrooloose/nerdtree
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
+    \ 'Modified'  : '✹',
+    \ 'Staged'    : '✚',
+    \ 'Untracked' : '✭',
+    \ 'Renamed'   : '➜',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : '✖',
+    \ 'Dirty'     : '✗',
+    \ 'Clean'     : '✔︎',
     \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
+    \ 'Unknown'   : '?'
     \ }
+
+" ryanoasis/vim-devicons
+let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:webdevicons_enable_airline_tabline = 0
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 0
 
 " -----------------------------------------------------------------------------
 " VIM INTERNAL CONFIGURATION
@@ -212,7 +224,7 @@ set path+=**
 set wildmode=list:longest,full
 
 " Set utf8 as standard encoding
-set encoding=utf8
+set encoding=utf-8
 
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -250,6 +262,6 @@ inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
 " SHORTCUT: Valloric/YouCompleteMe
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" SHORTCUT: edkolev/tmuxline.vim
+" SHORTCUT: scrooloose/nerdtree
 noremap <F2> :NERDTreeToggle<CR>
 noremap <leader>w :NERDTreeFind<CR>
