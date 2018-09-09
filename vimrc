@@ -170,7 +170,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " ryanoasis/vim-devicons
-let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsOS = 'Unix'
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:webdevicons_enable_airline_tabline = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
