@@ -6,3 +6,6 @@ alias inspiron_to_wd='pyrsync --origin ~/ --dest /media/marlom/marlom_backup/ --
 
 # Alias sync "WD My Passport Ultra External" to "Desktop (running Fedora)"
 alias wd_to_fedora_desktop='pyrsync --origin /run/media/marlom/marlom_backup/ --dest ~/ --folders Android Áudiolivros Documentos Downloads Imagens Música ProgramasRFB Softwares VMs Workspace Vídeos .steam .local/share/Zeal/Zeal/docsets .PlayOnLinux/wineprefix/ .pyenv .ssh .receitanet --files .agignore .bash_aliases .bash_profile .ctags .gitconfig --enable_all --exclude *~ *pyc argparse sys .fuse* *swp'
+
+# Alias to run warsaw docker image that allows Internet Baking on Banco do Brasil
+alias docker_bb='docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/Documentos/Outros/ArquivosDoBanco:/home/bank/Downloads -e DISPLAY=unix$DISPLAY --shm-size 2g --name warsaw-browser lichti/warsaw-browser bb'
