@@ -230,12 +230,6 @@ set encoding=utf-8
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Avoid any delete command to put the content into clipboard
-nnoremap x "_x
-nnoremap d "_d
-nnoremap D "_D
-vnoremap d "_d
-
 " -----------------------------------------------------------------------------
 " SHORCUTS
 " -----------------------------------------------------------------------------
