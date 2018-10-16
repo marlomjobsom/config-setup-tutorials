@@ -18,7 +18,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'brooth/far.vim'
+Plug 'wincent/ferret'
 
 " Language Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -46,8 +46,9 @@ let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
-let g:go_metalinter_enabled = ['golint']
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 " junegunn/fzf
 set rtp+=~/.fzf
@@ -239,7 +240,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 :noremap bp :bprevious<CR>
 
 " SHORTCUT: fatih/vim-go
-autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>r :GoRun %<CR>
 
 " SHORTCUT: w0rp/ale
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
