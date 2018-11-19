@@ -49,6 +49,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_fmt_command = "goimports"
 
 " junegunn/fzf
 set rtp+=~/.fzf
@@ -104,6 +105,12 @@ let g:tmuxline_preset = {
     \'y'    : '%R',
     \'z'    : '#H',
     \ 'options': {'status-justify': 'left'}}
+let g:tmuxline_separators = {
+  \ 'left' : '',
+  \ 'left_alt': '',
+  \ 'right' : '',
+  \ 'right_alt' : '',
+  \ 'space' : ' '}
 
 " vim-airline/vim-airline
 let g:airline_symbols = {}
@@ -123,8 +130,9 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'ubaryd'
+let g:airline_theme = 'base16_default'
 let g:airline_section_c = '%{airline#util#wrap(airline#parts#readonly(),0)}%'
 let g:airline_section_x = ''
 let g:airline_section_z = '%l/%L:%v'
@@ -207,9 +215,11 @@ set list
 " Set Theme
 colorscheme tender
 
+" Status bar
+set laststatus=2
+
 " Set Color Column
 set cc=101
-set laststatus=2
 hi ColorColumn ctermbg=236
 
 " Set identation
@@ -240,7 +250,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 :noremap bp :bprevious<CR>
 
 " SHORTCUT: fatih/vim-go
-autocmd FileType go nmap <leader>r :GoRun %<CR>
+autocmd FileType go nmap <leader><F9> :GoRun %<CR>
 
 " SHORTCUT: w0rp/ale
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
