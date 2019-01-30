@@ -22,7 +22,7 @@ Plug 'wincent/ferret'
 " Language Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --js-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --ts-completer' }
 
 " Appearance
 Plug 'jacoborus/tender'
