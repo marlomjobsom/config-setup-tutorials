@@ -69,7 +69,7 @@ let g:fzf_colors =
     \ 'header':  ['fg', 'Comment'] }
 
 " edkolev/tmuxline.vim
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\.min\.js$', '\.min\.css$', '\~$']
 
 " w0rp/ale
 let g:ale_completion_enabled = 1
