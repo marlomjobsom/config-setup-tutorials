@@ -222,7 +222,6 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=100
 
 " Search down into subfolders and provides completion for file-related tasks
 set path+=**
@@ -232,6 +231,9 @@ set wildmode=list:longest,full
 
 " Set utf8 as standard encoding
 set encoding=utf-8
+
+" Sets interprets to decimals notation
+set nrformats=
 
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
