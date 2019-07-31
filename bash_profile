@@ -3,7 +3,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools
 export PATH=${PATH}:$ANDROID_HOME/tools/bin
 export PATH=${PATH}:$ANDROID_HOME/platform-tools
-export PATH=${PATH}:$ANDROID_HOME/build-tools/23.0.3
+export PATH=${PATH}:$ANDROID_HOME/build-tools/28.0.3
 
 # AUTOJUMP
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
@@ -14,11 +14,9 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 eval "$(pyenv init -)"
 
 # FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND="ag --ignore '*.pyc' --ignore '*.swp' --ignore '~*' --ignore 'node_modules' --ignore 'build' -g ''"
-
-# JAVA_HOME
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 
 # GOPATH
 export GOROOT=/opt/go
@@ -33,3 +31,7 @@ export NVM_DIR="$HOME/.nvm"
 # JPF
 export JPF_ROOT="$HOME/Workspace/cin-master-degree/code/jpf"
 export JPF_CORE=$JPF_ROOT/jpf-core
+
+# jENV
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
