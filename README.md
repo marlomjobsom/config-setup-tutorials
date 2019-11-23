@@ -1,3 +1,3 @@
-# `Conf` files
+# Configurations / Setup / Tutorials
 
-Hold personal `conf` files for setup environment on Linux.
+It holds personal artifacts for configurations, setup and others tutorials for my daily-basis activities.
