@@ -178,7 +178,7 @@ sudo apt install soundconverter puddletag ffmpeg mencoder puddletag pavucontrol 
 
 ### Development
 ```shell
-sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk* openssh-server meld gitg zeal typora virtualbox-6.0 -y
+sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk* openssh-server meld gitg zeal typora virtualbox-6.0 dia -y
 ```
 
 #### `NVM`
