@@ -147,7 +147,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key a
 ### Add Flatpak support
 
 ```shell
-sudo apt install flatpak plasma-discover-flatpak-backend -y
+sudo apt install flatpak plasma-discover-backend-flatpak -y
 flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo su -c "echo '1' > /proc/sys/kernel/unprivileged_userns_clone"
 ```
