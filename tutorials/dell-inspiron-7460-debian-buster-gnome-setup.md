@@ -1,4 +1,4 @@
-# Debian Setup
+# Debian Gnome Setup
 
 **Version**: [Buster 10.0 64-bits](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.0.0+nonfree/)
 **Notebook**: [Inspiron 7460 14"](http://www.dell.com/br/p/inspiron-14-7460-laptop/pd?ref=491_title&oc=cai7460w10he1852539brpw&model_id=inspiron-14-7460-laptop)
