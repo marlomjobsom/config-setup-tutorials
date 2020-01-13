@@ -109,7 +109,6 @@ sudo su -c "echo -e 'Enable=Source,Sink,Media,Socket' >> /etc/bluetooth/audio.co
 sudo su -c "echo -e '\n# In order to auto-connect a2dp for some devices\nload-module module-switch-on-connect' >> /etc/pulse/default.pa"
 
 sudo service bluetooth restart
-sudo killall pulseaudio
 ```
 
 ### Add extra repositories
