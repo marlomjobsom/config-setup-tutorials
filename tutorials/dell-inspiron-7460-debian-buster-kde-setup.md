@@ -52,7 +52,7 @@ sudo apt install curl wget ca-certificates apt-transport-https gnupg2 software-p
 ### Common libraries for third-party softwares
 
 ```shell
-sudo apt install libtinfo5 multiarch-support -y
+sudo apt install libtinfo5 multiarch-support libgconf-2-4 -y
 ```
 
 ### Drivers
