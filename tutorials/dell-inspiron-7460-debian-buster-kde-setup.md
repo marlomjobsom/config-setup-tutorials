@@ -257,8 +257,6 @@ sudo apt install muon partitionmanager gnome-disk-utility -y
 
 ```shell
 sudo apt install kwin-addons libreoffice-style-sifr papirus-icon-theme -y
-
-# Enable rounded window corners. At the end, disable the window borders in Settings menu
 ```
 
 #### Enabling [`KDE-Rounded-Corners`](https://github.com/alex47/KDE-Rounded-Corners)
