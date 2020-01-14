@@ -250,7 +250,7 @@ sudo apt install rsync tmate gufw aria2 stoken openconnect network-manager-openc
 ### Configuration
 
 ```shell
-sudo apt install muon -y
+sudo apt install muon partitionmanager gnome-disk-utility -y
 ```
 
 ### Styling
