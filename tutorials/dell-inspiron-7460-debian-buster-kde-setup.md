@@ -96,21 +96,6 @@ sudo vim /usr/share/applications/nvidia-settings.desktop
 sudo gpasswd -a $USER bumblebee
 ```
 
-### Setup bluetooth
-
-```shell
-sudo apt install bluez bluez-firmware bluez-tools blueman pulseaudio-module-bluetooth -y
-
-# Setup /etc/bluetooth/audio.conf
-sudo su -c "echo -e '[General]' >> /etc/bluetooth/audio.conf"
-sudo su -c "echo -e 'Enable=Source,Sink,Media,Socket' >> /etc/bluetooth/audio.conf"
-
-# Needed to some devices auto-connect a2dp
-sudo su -c "echo -e '\n# In order to auto-connect a2dp for some devices\nload-module module-switch-on-connect' >> /etc/pulse/default.pa"
-
-sudo service bluetooth restart
-```
-
 ### Add extra repositories
 
 This section depends on [Install packages for compilation and manage repositories]() steps.
