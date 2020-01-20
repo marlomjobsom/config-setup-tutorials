@@ -55,6 +55,11 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 
 ## System user setup
 
+### Gnome apps
+```shell
+sudo apt install evolution evolution-ews evolution-plugins gnome-contacts gnome-calendar -y
+```
+
 ### Windows compatibility layer
 ```shell
 sudo apt install wine playonlinux -y
