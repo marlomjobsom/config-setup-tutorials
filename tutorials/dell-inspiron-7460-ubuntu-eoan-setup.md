@@ -15,7 +15,7 @@ sudo reboot
 ### Packages for compilation
 
 ```shell
-sudo apt install build-essential libbz2-dev libffi-dev liblzma-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev llvm make python-dev python-openssl python3-dev tk-dev xz-utils zlib1g-dev -y
+sudo apt install build-essential cmake libbz2-dev libffi-dev liblzma-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev llvm make python-dev python-openssl python3-dev tk-dev xz-utils zlib1g-dev -y
 ```
 
 ### Packages for repositories management
