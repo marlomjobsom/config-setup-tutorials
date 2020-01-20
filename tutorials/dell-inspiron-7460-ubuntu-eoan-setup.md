@@ -15,7 +15,7 @@ sudo reboot
 ### Packages for compilation
 
 ```shell
-sudo apt install -y
+sudo apt install python-dev python3-dev zlib1g-dev -y
 ```
 
 ### Packages for repositories management
