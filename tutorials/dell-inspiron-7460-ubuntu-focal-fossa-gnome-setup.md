@@ -20,7 +20,7 @@ sudo apt update && sudo apt upgrade -y
 ### Packages for compilation
 
 ```shell
-sudo apt install gcc make cmake build-essential python-dev python3-dev -y
+sudo apt install gcc make cmake build-essential python-dev python3-dev libssl-dev libreadline-dev libbz2-dev libsqlite3-dev -y
 ```
 
 ### Packages for repositories management
