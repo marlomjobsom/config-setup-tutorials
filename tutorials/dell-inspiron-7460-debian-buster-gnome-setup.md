@@ -192,8 +192,9 @@ nvm install v10.16.0 # Latest LTS version so far
 
 ```shell
 git clone https://github.com/jenv/jenv.git ~/.jenv
-echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(jenv init -)"' >> ~/.bash_profile
+echo '# JENV' >> ~/.bashrc
+echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(jenv init -)"' >> ~/.bashrc
 ```
 
 #### JDK 8

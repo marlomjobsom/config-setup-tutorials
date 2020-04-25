@@ -155,7 +155,7 @@ sudo apt install synaptic dconf-editor gnome-tweak-tool -y
 ### Styling
 
 ```shell
-sudo apt install papirus-icon-theme la-capitaine-cursor-theme -y
+sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme -y
 ```
 
 ### Utilities
