@@ -26,10 +26,6 @@ export PATH=$PATH:$PATH:$GOROOT/bin:$GOPATH/bin
 export JPF_ROOT="$HOME/Workspace/cin-master-degree/code/jpf"
 export JPF_CORE=$JPF_ROOT/jpf-core
 
-# jENV
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 # git branch name
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
