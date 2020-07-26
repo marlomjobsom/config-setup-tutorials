@@ -102,9 +102,10 @@ sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree
 curl https://pyenv.run | bash
 ```
 
-#### `pipenv`
+#### `poetry`
 ```shell
-pip install pipenv
+pip install --user poetry
+poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
 ```
 
 #### `NVM`
