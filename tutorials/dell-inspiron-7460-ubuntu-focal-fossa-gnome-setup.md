@@ -90,6 +90,9 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 ```shell
 sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese -y
+
+# Plugins for PulseEffets + PulseEffects itself
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-convolver-pulseeffects gstreamer1.0-plugins-good lsp-plugins zam-plugins mda-lv2 libsamplerate0 libsndfile1 libebur128-1 pulseeffects -y
 ```
 
 ### Development
