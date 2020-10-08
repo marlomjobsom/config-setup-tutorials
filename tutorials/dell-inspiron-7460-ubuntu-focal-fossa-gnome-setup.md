@@ -152,7 +152,7 @@ sudo install minikube /usr/local/bin/
 
 ### Network
 ```shell
-sudo apt install rsync tmate gufw aria2 stoken openconnect network-manager-openconnect network-manager-openconnect-gnome network-manager-openvpn network-manager-openvpn-gnome network-manager-ssh network-manager-ssh-gnome -y
+sudo apt install rsync tmate gufw aria2 openconnect network-manager-openconnect network-manager-openconnect-gnome network-manager-openvpn network-manager-openvpn-gnome network-manager-ssh network-manager-ssh-gnome -y
 ```
 
 ### Configuration
@@ -164,7 +164,7 @@ sudo apt install synaptic dconf-editor gnome-tweak-tool -y
 ### Styling
 
 ```shell
-sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme -y
+sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme materia-gtk-theme -y
 ```
 
 ### Utilities
@@ -175,7 +175,7 @@ sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme
 sudo apt install scrcpy
 ```
 
-### Flatpak apps
+### Flatpak apps and themes
 
 ```shell
 flatpak --user install flathub \
@@ -186,6 +186,7 @@ flatpak --user install flathub \
     com.calibre_ebook.calibre \
     com.elsevier.MendeleyDesktop \
     com.spotify.Client \
-    org.gimp.GIMP \
-    com.slack.Slack -y
+    org.gimp.GIMP -y
+    
+flatpak install flathub org.gtk.Gtk3theme.Materia{,-dark,-light}{,-compact} -y
 ```
