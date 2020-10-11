@@ -155,6 +155,19 @@ sudo install minikube /usr/local/bin/
 sudo apt install rsync tmate gufw aria2 openconnect network-manager-openconnect network-manager-openconnect-gnome network-manager-openvpn network-manager-openvpn-gnome network-manager-ssh network-manager-ssh-gnome -y
 ```
 
+#### Wireshark
+```shell
+# Accept to let non-superusers to be able to capture packets
+# If missed the prompot run $ sudo dpkg-reconfigure wireshark-common
+sudo apt install wireshark -y
+
+# It requires logout
+sudo usermod -a -G wireshark $USER
+
+# TIP: Runs it within its group to use wireshark without logout
+# newgrp wireshark
+```
+
 ### Configuration
 
 ```shell
