@@ -95,6 +95,15 @@ sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-res
 sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-convolver-pulseeffects gstreamer1.0-plugins-good lsp-plugins zam-plugins mda-lv2 libsamplerate0 libsndfile1 libebur128-1 pulseeffects -y
 ```
 
+#### Troubleshooting: Fn Media keys slow/delayed on Gnome
+* [keyboard - Fn Media keys slow/delayed on ubuntu gnome 17.04 - Ask Ubuntu](https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04)
+```shell
+# IMPORTANT: It is applicable to pt-br keyboard layout only
+sudo sed -i 's/modifier_map Mod3   { Scroll_Lock };/\/\/ modifier_map Mod3   { Scroll_Lock };/' /usr/share/X11/xkb/symbols/br
+setxkbmap -layout br
+```
+
+
 ### Development
 ```shell
 sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld gitg zeal typora virtualbox dia baobab -y
