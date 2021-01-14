@@ -54,6 +54,21 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 
 ## User setup
 
+### Google Drive
+
+Usage of [FUSE filesystem over Google Drive](https://github.com/astrada/google-drive-ocamlfuse#usage).
+
+```shell
+sudo add-apt-repository ppa:alessandro-strada/ppa
+sudo apt install google-drive-ocamlfuse -y
+
+sudo mkdir -p /home/google-drive
+sudo chown -R $USER.USER /home/google-drive
+cd /home/google-drive
+google-drive-ocamlfuse # Google authentication
+google-drive-ocamlfuse . # Mount Google Drive
+```
+
 ### Windows compatibility layer
 ```shell
 sudo apt install wine playonlinux -y
