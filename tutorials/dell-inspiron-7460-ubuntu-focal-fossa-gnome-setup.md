@@ -54,21 +54,6 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 
 ## User setup
 
-### Google Drive
-
-Usage of [FUSE filesystem over Google Drive](https://github.com/astrada/google-drive-ocamlfuse#usage).
-
-```shell
-sudo add-apt-repository ppa:alessandro-strada/ppa
-sudo apt install google-drive-ocamlfuse -y
-
-sudo mkdir -p /home/google-drive
-sudo chown -R $USER.USER /home/google-drive
-cd /home/google-drive
-google-drive-ocamlfuse # Google authentication
-google-drive-ocamlfuse . # Mount Google Drive
-```
-
 ### Windows compatibility layer
 ```shell
 sudo apt install wine playonlinux -y
@@ -118,11 +103,11 @@ sudo sed -i 's/modifier_map Mod3   { Scroll_Lock };/\/\/ modifier_map Mod3   { S
 setxkbmap -layout br
 ```
 
-
 ### Development
 ```shell
 sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld gitg zeal typora virtualbox dia baobab -y
 ```
+
 #### `pyenv`
 
 ```shell
@@ -210,6 +195,13 @@ sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme
 
 ```shell
 sudo apt install scrcpy
+```
+
+#### `rclone`:  A CLI to manage files on cloud storage
+
+```shell
+curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb
+sudo dpkg -i rclone-current-linux-amd64.deb
 ```
 
 ### Flatpak apps and themes
