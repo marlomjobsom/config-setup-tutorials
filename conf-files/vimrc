@@ -11,8 +11,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
@@ -22,7 +20,7 @@ Plug 'wincent/ferret'
 " Language Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --ts-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --go-completer --ts-completer --java-complete' }
 
 " Appearance
 Plug 'jacoborus/tender'
@@ -52,6 +50,7 @@ let g:go_fmt_command = "goimports"
 
 " junegunn/fzf
 set rtp+=~/.fzf
+let g:fzf_preview_window = ''
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_tags_command = 'ctags --fields=+l -R'
 let g:fzf_colors =
@@ -90,11 +89,6 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
-
-" SirVer/ultisnips
-let g:UltiSnipsExpandTrigger = '<C-l>'
-let g:UltiSnipsJumpForwardTrigger = '<C-k>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-j>'
 
 " edkolev/tmuxline.vim
 let g:tmuxline_preset = {
@@ -163,7 +157,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ 'Modified'  : '✹',
     \ 'Staged'    : '✚',
     \ 'Untracked' : '✭',
