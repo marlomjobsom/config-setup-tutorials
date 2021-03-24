@@ -35,19 +35,6 @@ call plug#end()
 " PLUGINS CONFIGURATION
 " -----------------------------------------------------------------------------
 
-" fatih/vim-go
-let g:go_textobj_include_function_doc = 1
-let g:go_addtags_transform = 'camelcase'
-let g:go_highlight_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_fmt_command = "goimports"
-
 " junegunn/fzf
 set rtp+=~/.fzf
 let g:fzf_preview_window = ''
@@ -67,8 +54,46 @@ let g:fzf_colors =
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
 
-" edkolev/tmuxline.vim
+" scrooloose/nerdtree
 let NERDTreeIgnore=['\.pyc$', '\.min\.js$', '\.min\.css$', '\~$']
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ 'Modified'  : '✹',
+    \ 'Staged'    : '✚',
+    \ 'Untracked' : '✭',
+    \ 'Renamed'   : '➜',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : '✖',
+    \ 'Dirty'     : '✗',
+    \ 'Clean'     : '✔︎',
+    \ 'Ignored'   : '☒',
+    \ 'Unknown'   : '?'
+    \ }
+
+" fatih/vim-go
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+let g:go_auto_type_info = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_list_autoclose = 1 
+let g:go_textobj_include_function_doc = 1
+let g:go_addtags_transform = 'camelcase'
 
 " w0rp/ale
 let g:ale_completion_enabled = 1
@@ -80,7 +105,7 @@ let g:ale_pattern_options = {
 \}
 let g:ale_linters = {
 \   'python': ['pylint'],
-\   'go': ['golint'],
+\   'go': ['govet','golint','staticcheck', 'gopls'],
 \   'xml': ['xmllint'],
 \   'html': ['htmlhint'],
 \   'javascript': ['eslint'],
@@ -89,6 +114,15 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
+
+" Valloric/YouCompleteMe
+let g:ycm_python_binary_path = 'python'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " edkolev/tmuxline.vim
 let g:tmuxline_preset = {
@@ -142,32 +176,6 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '' : 'S',
     \ 't'  : 'T',
-    \ }
-
-" Valloric/YouCompleteMe
-let g:ycm_python_binary_path = 'python'
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_use_ultisnips_completer = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-
-" scrooloose/nerdtree
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ 'Modified'  : '✹',
-    \ 'Staged'    : '✚',
-    \ 'Untracked' : '✭',
-    \ 'Renamed'   : '➜',
-    \ 'Unmerged'  : '═',
-    \ 'Deleted'   : '✖',
-    \ 'Dirty'     : '✗',
-    \ 'Clean'     : '✔︎',
-    \ 'Ignored'   : '☒',
-    \ 'Unknown'   : '?'
     \ }
 
 " ryanoasis/vim-devicons
@@ -241,7 +249,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 :noremap bp :bprevious<CR>
 
 " SHORTCUT: fatih/vim-go
-autocmd FileType go nmap <leader><F9> :GoRun %<CR>
+autocmd FileType go nmap <leader><F9> :GoRun<CR>
 
 " SHORTCUT: w0rp/ale
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
