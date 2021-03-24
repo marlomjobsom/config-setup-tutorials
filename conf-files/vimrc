@@ -247,6 +247,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " SHORTCUT: Moving between buffers
 :noremap bn :bnext<CR>
 :noremap bp :bprevious<CR>
+:noremap bd :bdelete<CR>
 
 " SHORTCUT: fatih/vim-go
 autocmd FileType go nmap <leader><F9> :GoRun<CR>
