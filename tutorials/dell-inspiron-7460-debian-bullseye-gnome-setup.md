@@ -156,7 +156,7 @@ echo 'eval "$(jenv init -)"' >> ~/.bashrc
 jenv enable-plugin export
 ```
 
-### `pyEnv`
+#### `pyEnv`
 
 ```shell
 curl https://pyenv.run | bash
