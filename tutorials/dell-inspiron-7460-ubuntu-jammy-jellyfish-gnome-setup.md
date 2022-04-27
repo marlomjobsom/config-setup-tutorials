@@ -20,7 +20,7 @@ sudo apt install gcc make cmake build-essential python2-dev python3-dev libssl-d
 ### Packages for repositories management
 
 ```shell
-sudo apt install curl wget apt-transport-https gnupg-agent -y
+sudo apt install curl apt-transport-https gnupg-agent -y
 ```
 
 ### Add extra repositories
@@ -79,10 +79,7 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 
 ### Multimedia
 ```shell
-sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc -y
-
-# Plugins for PulseEffets + PulseEffects itself
-sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-convolver-pulseeffects gstreamer1.0-plugins-good lsp-plugins zam-plugins mda-lv2 libsamplerate0 libsndfile1 libebur128-1 pulseeffects -y
+sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 -y
 ```
 
 ### Development
@@ -94,9 +91,14 @@ sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree
 
 ```shell
 curl https://pyenv.run | bash
-printf '\n#PYENV' >> ~/.bashrc
-echo export PATH=$PATH:$HOME/.pyenv/bin:$HOME/.pyenv/shims
-echo eval "$(pyenv virtualenv-init -)"
+printf '\n# PYENV\n' >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/.pyenv/bin:$HOME/.pyenv/shims' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+echo 'PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
+source ~/.bashrc
+pyenv install 3.10.4
+pyenv install 2.7.18
+pyenv global 3.10.4
 ```
 
 #### `poetry`
@@ -108,17 +110,20 @@ poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
 #### `NVM`
 
 ```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-nvm install v12.16.2
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install --lts
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/node /usr/bin/node
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/npm /usr/bin/npm
 ```
 
 #### `jEnv`
 
 ```shell
 git clone https://github.com/jenv/jenv.git ~/.jenv
-printf '\n# JENV' >> ~/.bashrc
+printf '\n# JENV\n' >> ~/.bashrc
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(jenv init -)"' >> ~/.bashrc
+source ~/.bashrc
 jenv enable-plugin export
 exec $SHELL -l
 ```
@@ -137,6 +142,7 @@ sudo gpasswd -a $USER docker
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo install kubectl /usr/local/bin/
+rm kubectl
 ```
 
 ##### Minikube
@@ -144,6 +150,7 @@ sudo install kubectl /usr/local/bin/
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube
 sudo install minikube /usr/local/bin/
+rm minikube
 ```
 
 ### Network
@@ -177,6 +184,7 @@ sudo apt install scrcpy
 ```shell
 curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb
 sudo dpkg -i rclone-current-linux-amd64.deb
+rm rclone-current-linux-amd64.deb
 ```
 
 ### Flatpak apps and themes
