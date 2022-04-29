@@ -115,7 +115,7 @@ pyenv global 3.10.4
 #### `poetry`
 ```shell
 pip install --user poetry
-poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
+poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
 ```
 
 #### `NVM`
