@@ -25,17 +25,21 @@ sudo apt install curl apt-transport-https gnupg-agent -y
 
 ### Add extra repositories
 
+#### La-capitaine
+
 ```shell
-# La-capitaine
 sudo su -c "echo 'deb http://ppa.launchpad.net/dyatlov-igor/la-capitaine/ubuntu cosmic main' >> /etc/apt/sources.list.d/la-capitaine.list"
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C65A650570C1DA17B725012BC012ECBBC24D881
+```
 
-# Typora
+#### Typora
+
+```shell
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
 sudo add-apt-repository 'deb https://typora.io/linux ./'
 ```
 
-### Add Flatpak support
+#### Flatpak: Flathub
 
 ```shell
 sudo apt install flatpak gnome-software-plugin-flatpak -y
@@ -70,6 +74,13 @@ sudo apt install evolution evolution-ews -y
 
 ```shell
 sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpaste flameshot gnome-sushi gnome-calendar gnome-contacts gnome-clocks gnome-todo libreoffice libreoffice-l10n-pt-br -y
+```
+
+#### `autojump`
+
+```shell
+printf '\n# AUTOJUMP\n' >> ~/.bashrc
+echo '[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh' >> ~/.bashrc
 ```
 
 ### Dictionary
@@ -192,7 +203,6 @@ rm rclone-current-linux-amd64.deb
 ```shell
 flatpak --user install flathub \
     org.telegram.desktop \
-    com.uploadedlobster.peek \
     com.getpostman.Postman \
     com.calibre_ebook.calibre \
     org.gnome.Lollypop \

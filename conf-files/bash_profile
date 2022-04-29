@@ -5,9 +5,6 @@ export PATH=${PATH}:$ANDROID_HOME/tools/bin
 export PATH=${PATH}:$ANDROID_HOME/platform-tools
 export PATH=${PATH}:$ANDROID_HOME/build-tools/28.0.3
 
-# AUTOJUMP
-[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
-
 # PYENV
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 
