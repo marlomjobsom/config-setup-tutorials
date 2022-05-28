@@ -32,13 +32,6 @@ sudo su -c "echo 'deb http://ppa.launchpad.net/dyatlov-igor/la-capitaine/ubuntu 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C65A650570C1DA17B725012BC012ECBBC24D881
 ```
 
-#### Typora
-
-```shell
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-sudo add-apt-repository 'deb https://typora.io/linux ./'
-```
-
 #### Flatpak: Flathub
 
 ```shell
@@ -95,7 +88,7 @@ sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-res
 
 ### Development
 ```shell
-sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld gitg zeal typora virtualbox dia baobab -y
+sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld gitg zeal virtualbox dia baobab -y
 ```
 
 #### `pyenv`
@@ -202,6 +195,7 @@ rm rclone-current-linux-amd64.deb
 
 ```shell
 flatpak --user install flathub \
+    org.gnome.gitlab.somas.Apostrophe \
     org.telegram.desktop \
     com.getpostman.Postman \
     com.calibre_ebook.calibre \
