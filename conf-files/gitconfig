@@ -6,4 +6,4 @@
 [alias]
 	alog = log --decorate --oneline --all --graph
 [core]
-	editor = vim
+	editor = vim -u NONE
