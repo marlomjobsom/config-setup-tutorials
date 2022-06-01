@@ -1,7 +1,9 @@
 # Ubuntu 22.04 LTS Setup
 
 **Version**: [Jammy Jellyfish 64-bits](https://releases.ubuntu.com/22.04/ubuntu-22.04-desktop-amd64.iso)
-**Notebook**: [Inspiron 7460 14"](http://www.dell.com/br/p/inspiron-14-7460-laptop/pd?ref=491_title&oc=cai7460w10he1852539brpw&model_id=inspiron-14-7460-laptop)
+**Notebooks**:
+* [Inspiron 7460 14"](http://www.dell.com/br/p/inspiron-14-7460-laptop/pd?ref=491_title&oc=cai7460w10he1852539brpw&model_id=inspiron-14-7460-laptop)
+* [Samsung Galaxy Book Pro 15.6"](https://www.samsung.com/br/computers/samsung-book/galaxy-book-pro-15inch-i7-16gb-1tb-np950xdb-ku1br/)
 
 ## System setup
 
@@ -98,7 +100,7 @@ curl https://pyenv.run | bash
 printf '\n# PYENV\n' >> ~/.bashrc
 echo 'export PATH=$PATH:$HOME/.pyenv/bin:$HOME/.pyenv/shims' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-echo 'PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
+echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
 source ~/.bashrc
 pyenv install 3.10.4
 pyenv install 2.7.18
@@ -107,7 +109,7 @@ pyenv global 3.10.4
 
 #### `poetry`
 ```shell
-pip install --user poetry
+$HOME/.pyenv/shims/pip install --user --upgrade poetry pip
 poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
 ```
 
@@ -200,5 +202,6 @@ flatpak --user install flathub \
     com.getpostman.Postman \
     com.calibre_ebook.calibre \
     org.gnome.Lollypop \
+    io.posidon.Paper \
     org.gimp.GIMP -y
 ```
