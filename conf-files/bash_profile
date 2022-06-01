@@ -1,10 +1,3 @@
-# ANDROID_HOME
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools
-export PATH=${PATH}:$ANDROID_HOME/tools/bin
-export PATH=${PATH}:$ANDROID_HOME/platform-tools
-export PATH=${PATH}:$ANDROID_HOME/build-tools/28.0.3
-
 # FZF
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND="ag --ignore '*.pyc' --ignore '*.swp' --ignore '~*' --ignore 'node_modules' --ignore 'build' -g ''"
