@@ -100,6 +100,7 @@ curl https://pyenv.run | bash
 printf '\n# PYENV\n' >> ~/.bashrc
 echo 'export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
 source ~/.bashrc
 pyenv install 3.10.4
@@ -109,7 +110,7 @@ pyenv global 3.10.4
 
 #### `poetry`
 ```shell
-$HOME/.pyenv/shims/pip install --user --upgrade poetry pip
+pip install poetry
 poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
 ```
 
@@ -199,9 +200,11 @@ rm rclone-current-linux-amd64.deb
 flatpak --user install flathub \
     org.gnome.gitlab.somas.Apostrophe \
     org.telegram.desktop \
+    io.github.mimbrero.WhatsAppDesktop \
     com.getpostman.Postman \
     com.calibre_ebook.calibre \
     org.gnome.Lollypop \
     io.posidon.Paper \
-    org.gimp.GIMP -y
+    org.gimp.GIMP \
+    org.kde.haruna -y
 ```
