@@ -198,13 +198,21 @@ rm rclone-current-linux-amd64.deb
 
 ```shell
 flatpak --user install flathub \
-    org.gnome.gitlab.somas.Apostrophe \
     org.telegram.desktop \
     io.github.mimbrero.WhatsAppDesktop \
-    com.getpostman.Postman \
     com.calibre_ebook.calibre \
-    org.gnome.Lollypop \
     io.posidon.Paper \
+    org.gnome.gitlab.somas.Apostrophe \
+    org.gnome.Lollypop \
     org.gimp.GIMP \
-    org.kde.haruna -y
+    org.kde.haruna \
+    org.gnome.gitlab.YaLTeR.VideoTrimmer \
+    io.github.celluloid_player.Celluloid \
+    com.getpostman.Postman -y
 ```
+
+#### Celluloid: Saving video position
+1. Open *Celluloid*
+2. Go to *Preferences*
+3. Go to *Miscellaneous* tab
+4. Add `save-position-on-quit` in *Extra mpv options* text field
