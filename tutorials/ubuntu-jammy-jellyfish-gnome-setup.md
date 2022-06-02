@@ -98,8 +98,8 @@ sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree
 ```shell
 curl https://pyenv.run | bash
 printf '\n# PYENV\n' >> ~/.bashrc
-echo 'export PATH=$PATH:$HOME/.pyenv/bin:$HOME/.pyenv/shims' >> ~/.bashrc
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+echo 'export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
 source ~/.bashrc
 pyenv install 3.10.4
