@@ -205,7 +205,6 @@ flatpak --user install flathub \
     org.gnome.gitlab.somas.Apostrophe \
     org.gnome.Lollypop \
     org.gimp.GIMP \
-    org.kde.haruna \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
     io.github.celluloid_player.Celluloid \
     com.getpostman.Postman -y
