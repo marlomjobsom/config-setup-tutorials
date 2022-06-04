@@ -62,13 +62,29 @@ sudo apt install wine playonlinux -y
 
 ### Communication
 ```shell
-sudo apt install evolution evolution-ews -y
+flatpak --user install flathub \
+    org.gnome.Geary \
+    org.telegram.desktop \
+    io.github.mimbrero.WhatsAppDesktop -y
 ```
 
 ### Productivity
 
 ```shell
-sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpaste flameshot gnome-sushi gnome-calendar gnome-contacts gnome-clocks gnome-todo libreoffice libreoffice-l10n-pt-br -y
+sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpaste gnome-sushi gnome-calendar gnome-contacts gnome-clocks gnome-todo -y
+```
+
+### Reading & Writing
+
+```shell
+sudo apt install libreoffice libreoffice-l10n-pt-br -y
+```
+
+```shell
+flatpak --user install flathub \
+    com.calibre_ebook.calibre \
+    io.posidon.Paper \
+    org.gnome.gitlab.somas.Apostrophe -y
 ```
 
 #### `autojump`
@@ -88,9 +104,27 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 -y
 ```
 
+```shell
+flatpak --user install flathub \
+    org.gnome.Lollypop \
+    org.gimp.GIMP \
+    org.gnome.gitlab.YaLTeR.VideoTrimmer \
+    io.github.celluloid_player.Celluloid \
+```
+
+#### Celluloid: Saving video position
+1. Open *Celluloid*
+2. Go to *Preferences*
+3. Go to *Miscellaneous* tab
+4. Add `save-position-on-quit` in *Extra mpv options* text field
+
 ### Development
 ```shell
 sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld gitg zeal virtualbox dia baobab -y
+```
+
+```shell
+flatpak --user install flathub com.getpostman.Postman -y
 ```
 
 #### `pyenv`
@@ -193,25 +227,3 @@ curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb
 sudo dpkg -i rclone-current-linux-amd64.deb
 rm rclone-current-linux-amd64.deb
 ```
-
-### Flatpak apps and themes
-
-```shell
-flatpak --user install flathub \
-    org.telegram.desktop \
-    io.github.mimbrero.WhatsAppDesktop \
-    com.calibre_ebook.calibre \
-    io.posidon.Paper \
-    org.gnome.gitlab.somas.Apostrophe \
-    org.gnome.Lollypop \
-    org.gimp.GIMP \
-    org.gnome.gitlab.YaLTeR.VideoTrimmer \
-    io.github.celluloid_player.Celluloid \
-    com.getpostman.Postman -y
-```
-
-#### Celluloid: Saving video position
-1. Open *Celluloid*
-2. Go to *Preferences*
-3. Go to *Miscellaneous* tab
-4. Add `save-position-on-quit` in *Extra mpv options* text field
