@@ -30,8 +30,10 @@ sudo apt install curl apt-transport-https gnupg-agent -y
 #### La-capitaine
 
 ```shell
-sudo su -c "echo 'deb http://ppa.launchpad.net/dyatlov-igor/la-capitaine/ubuntu cosmic main' >> /etc/apt/sources.list.d/la-capitaine.list"
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C65A650570C1DA17B725012BC012ECBBC24D881
+sudo apt-key export BC24D881 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/la-capitaine.gpg
+sudo apt-key del BC24D88
+sudo su -c "echo 'deb [signed-by=/etc/apt/trusted.gpg.d/la-capitaine.gpg] http://ppa.launchpad.net/dyatlov-igor/la-capitaine/ubuntu cosmic main"
 ```
 
 #### Flatpak: Flathub
