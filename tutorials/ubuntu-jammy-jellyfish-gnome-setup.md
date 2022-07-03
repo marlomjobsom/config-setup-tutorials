@@ -112,6 +112,7 @@ flatpak --user install flathub \
     org.gimp.GIMP \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
     io.github.celluloid_player.Celluloid \
+    com.github.flxzt.rnote -y
 ```
 
 #### Celluloid: Saving video position
