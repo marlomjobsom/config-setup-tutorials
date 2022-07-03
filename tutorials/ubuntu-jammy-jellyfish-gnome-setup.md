@@ -112,6 +112,7 @@ flatpak --user install flathub \
     org.gimp.GIMP \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
     io.github.celluloid_player.Celluloid \
+    org.gnome.Podcasts \
     com.github.flxzt.rnote -y
 ```
 
