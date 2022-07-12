@@ -27,6 +27,12 @@ sudo apt install curl apt-transport-https gnupg-agent -y
 
 ### Add extra repositories
 
+#### CherryTree
+
+```shell
+sudo add-apt-repository ppa:giuspen/ppa
+```
+
 #### La-capitaine
 
 ```shell
@@ -79,13 +85,12 @@ sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpast
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br -y
+sudo apt install libreoffice libreoffice-l10n-pt-br cherrytree -y
 ```
 
 ```shell
 flatpak --user install flathub \
     com.calibre_ebook.calibre \
-    net.giuspen.cherrytree \
     org.gnome.gitlab.somas.Apostrophe -y
 ```
 
