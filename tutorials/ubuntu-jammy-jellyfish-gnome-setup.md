@@ -85,7 +85,7 @@ sudo apt install libreoffice libreoffice-l10n-pt-br -y
 ```shell
 flatpak --user install flathub \
     com.calibre_ebook.calibre \
-    io.posidon.Paper \
+    net.giuspen.cherrytree \
     org.gnome.gitlab.somas.Apostrophe -y
 ```
 
