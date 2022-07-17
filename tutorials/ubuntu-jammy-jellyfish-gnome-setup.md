@@ -91,7 +91,8 @@ sudo apt install libreoffice libreoffice-l10n-pt-br cherrytree -y
 ```shell
 flatpak --user install flathub \
     com.calibre_ebook.calibre \
-    org.gnome.gitlab.somas.Apostrophe -y
+    org.gnome.gitlab.somas.Apostrophe \
+    app.drey.Dialect -y
 ```
 
 #### `autojump`
