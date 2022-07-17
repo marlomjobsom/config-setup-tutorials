@@ -27,6 +27,12 @@ sudo apt install curl apt-transport-https gnupg-agent -y
 
 ### Add extra repositories
 
+#### Celluloid
+
+```shell
+sudo add-apt-repository ppa:xuzhen666/gnome-mpv
+```
+
 #### CherryTree
 
 ```shell
@@ -109,7 +115,7 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 
 ### Multimedia
 ```shell
-sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 -y
+sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 celluloid -y
 ```
 
 ```shell
@@ -117,7 +123,6 @@ flatpak --user install flathub \
     org.gnome.Lollypop \
     org.gimp.GIMP \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
-    io.github.celluloid_player.Celluloid \
     org.gnome.Podcasts \
     com.github.flxzt.rnote -y
 ```
