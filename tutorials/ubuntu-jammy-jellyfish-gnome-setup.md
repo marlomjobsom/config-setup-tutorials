@@ -170,6 +170,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install --lts
 sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/node /usr/bin/node
 sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/npm /usr/bin/npm
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/electron
 ```
 
 #### `jEnv`
