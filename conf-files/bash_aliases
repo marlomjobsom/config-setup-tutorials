@@ -1,9 +1,3 @@
-# Sync "WD My Passport Ultra External" to "Inspiron 7460"
-alias wd_to_inspiron='pyrsync --mirroring --origin /media/$USER/marlom_backup/files/ --dest /home/files/ --exclude *~ *pyc argparse sys .fuse* *swp'
-
-# Sync "Inspiron 7460" to "WD My Passport Ultra External"
-alias inspiron_to_wd='pyrsync --mirroring --origin /home/files/ --dest /media/$USER/marlom_backup/files/ --exclude *~ *pyc argparse sys .fuse* *swp'
-
 # Run warsaw docker image that allows Internet Baking on Banco do Brasil
 alias docker_bb='docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/Documentos/Outros/ArquivosDoBanco:/home/bank/Downloads -e DISPLAY=unix$DISPLAY --shm-size 2g --name warsaw-browser lichti/warsaw-browser bb'
 
