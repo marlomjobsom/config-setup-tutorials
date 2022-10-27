@@ -39,6 +39,12 @@ sudo add-apt-repository ppa:xuzhen666/gnome-mpv
 sudo add-apt-repository ppa:giuspen/ppa
 ```
 
+#### FSearch
+
+```shell
+sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
+```
+
 #### La-capitaine
 
 ```shell
@@ -85,7 +91,7 @@ flatpak --user install flathub \
 ### Productivity
 
 ```shell
-sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpaste gnome-sushi gnome-calendar gnome-contacts gnome-clocks gnome-todo -y
+sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpaste gnome-sushi gnome-calendar gnome-contacts gnome-clocks gnome-todo fsearch -y
 ```
 
 ### Reading & Writing
