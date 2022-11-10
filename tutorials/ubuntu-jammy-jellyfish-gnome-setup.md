@@ -2,6 +2,7 @@
 
 **Version**: [Jammy Jellyfish 64-bits](https://releases.ubuntu.com/22.04/ubuntu-22.04-desktop-amd64.iso)
 **Notebooks**:
+
 * [Inspiron 7460 14"](http://www.dell.com/br/p/inspiron-14-7460-laptop/pd?ref=491_title&oc=cai7460w10he1852539brpw&model_id=inspiron-14-7460-laptop)
 * [Samsung Galaxy Book Pro 15.6"](https://www.samsung.com/br/computers/samsung-book/galaxy-book-pro-15inch-i7-16gb-1tb-np950xdb-ku1br/)
 
@@ -76,11 +77,13 @@ sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme
 ```
 
 ### Windows compatibility layer
+
 ```shell
 sudo apt install wine playonlinux -y
 ```
 
 ### Communication
+
 ```shell
 flatpak --user install flathub \
     org.gnome.Geary \
@@ -115,11 +118,13 @@ echo '[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/aut
 ```
 
 ### Dictionary
+
 ```shell
 sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gcide dict-wn goldendict hunspell hunspell-pt-br hunspell-en-us -y
 ```
 
 ### Multimedia
+
 ```shell
 sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 celluloid -y
 ```
@@ -134,12 +139,14 @@ flatpak --user install flathub \
 ```
 
 #### Celluloid: Saving video position
+
 1. Open *Celluloid*
 2. Go to *Preferences*
 3. Go to *Miscellaneous* tab
 4. Add `save-position-on-quit` in *Extra mpv options* text field
 
 ### Development
+
 ```shell
 sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld gitg zeal virtualbox dia baobab -y
 ```
@@ -164,6 +171,7 @@ pyenv global 3.10.4
 ```
 
 #### `poetry`
+
 ```shell
 pip install poetry
 poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
@@ -201,6 +209,7 @@ sudo gpasswd -a $USER docker
 #### Kubernetes
 
 ##### Kubectl
+
 ```shell
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -209,6 +218,7 @@ rm kubectl
 ```
 
 ##### Minikube
+
 ```shell
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube
@@ -217,11 +227,13 @@ rm minikube
 ```
 
 ### Network
+
 ```shell
 sudo apt install rsync tmate gufw aria2 openconnect network-manager-openconnect network-manager-openconnect-gnome network-manager-openvpn network-manager-openvpn-gnome network-manager-ssh network-manager-ssh-gnome -y
 ```
 
 #### Wireshark
+
 ```shell
 # Accept to let non-superusers to be able to capture packets
 # If missed the prompot run $ sudo dpkg-reconfigure wireshark-common
