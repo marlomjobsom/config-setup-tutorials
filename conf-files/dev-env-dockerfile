@@ -57,19 +57,19 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
     rm -rf awscli-bundle*
 
 # AUTOJUMP
-RUN printf "dev\n" | sudo -S apt install autojump -y && \
-    printf '# AUTOJUMP\n' >> $HOME/.bashrc && \
+RUN printf '\n# AUTOJUMP\n' >> $HOME/.bashrc && \
+    printf "dev\n" | sudo -S apt install autojump -y && \
     printf '[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh\n' >> $HOME/.bashrc
 
 # FZF
-RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
-    $HOME/.fzf/install --all && \
-    printf '# FZF\n' >> $HOME/.bashrc && \
-    printf '[ -f ~/.fzf.bash ] && source ~/.fzf.bash\n' >> $HOME/.bashrc
+RUN printf '\n# FZF' >> $HOME/.bashrc && \
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
+    $HOME/.fzf/install --all
 
 # ENABLE GIT COMPLETION
-RUN printf '# GIT COMPLETION\n' >> $HOME/.bashrc && \
-    printf '[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash\n'
+RUN printf '\n# GIT COMPLETION\n' >> $HOME/.bashrc && \
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $HOME/.git-completion.bash && \
+    printf '[ -f $HOME/.git-completion.bash ] && . $HOME/.git-completion.bash\n' >> $HOME/.bashrc
 
 VOLUME /home/dev
 
