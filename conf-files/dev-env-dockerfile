@@ -1,0 +1,81 @@
+FROM ubuntu:22.04
+
+# Replace shell with bash so we can source files
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Base packages
+RUN apt update
+RUN apt install sudo -y
+RUN apt install apt-utils gcc make cmake build-essential -y
+RUN apt install libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev python2-dev python3-dev unzip zip -y
+RUN apt install openssh-server curl apt-transport-https gnupg-agent -y
+RUN apt install git rsync aria2 openconnect autojump -y
+RUN apt install vim exuberant-ctags silversearcher-ag tmux tree -y
+RUN apt install virtualenv openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless -y
+
+# Setup users
+RUN echo 'root:root' | chpasswd && \
+    useradd -m -U dev && \
+    echo 'dev:dev' | chpasswd && \
+    adduser dev sudo
+
+# Setup home folder
+USER dev
+WORKDIR /home/dev
+
+# PYENV
+RUN curl https://pyenv.run | bash && \
+    printf '\n# PYENV\n' >> $HOME/.bashrc && \
+    echo 'export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH' >> $HOME/.bashrc && \
+    echo 'eval "$(pyenv init -)"' >> $HOME/.bashrc && \
+    echo 'eval "$(pyenv virtualenv-init -)"' >> $HOME/.bashrc && \
+    echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> $HOME/.bashrc && \
+    $HOME/.pyenv/bin/pyenv install 3.10.4 && \
+    $HOME/.pyenv/bin/pyenv global 3.10.4
+
+# JENV
+RUN git clone https://github.com/jenv/jenv.git $HOME/.jenv && \
+    printf '\n# JENV\n' >> $HOME/.bashrc && \
+    echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> $HOME/.bashrc && \
+    echo 'eval "$(jenv init -)"' >> $HOME/.bashrc
+
+# NVM
+RUN printf '\n# NVM\n' >> $HOME/.bashrc && \
+    printf 'export NVM_DIR="$HOME/.nvm"\n' >> $HOME/.bashrc && \
+    printf '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm\n' >> $HOME/.bashrc && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
+    . $HOME/.nvm/nvm.sh && \
+    nvm install --lts && \
+    printf "dev\n" | sudo -S ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/node /usr/bin/node && \
+    printf "dev\n" | sudo -S ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/npm /usr/bin/npm && \
+    printf "dev\n" | sudo -S ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/electron
+
+# AWS CLI
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
+    unzip awscli-bundle.zip && \
+    printf "dev\n" | sudo -S $HOME/.pyenv/versions/3.10.4/bin/python ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
+    rm -rf awscli-bundle*
+
+# Build parameters
+ARG SSH_PUBLIC_KEY
+
+# Setup SSH host credential
+RUN mkdir $HOME/.ssh
+RUN echo $SSH_PUBLIC_KEY > $HOME/.ssh/authorized_keys
+
+VOLUME /home/dev
+
+ENTRYPOINT printf "dev\n" | sudo -S service ssh start && \
+    tail -f /dev/null
+
+# HOW-TO build and run
+# docker build --build-arg SSH_PUBLIC_KEY="$(cat $HOME/.ssh/id_rsa.pub)" -t dev-env:latest -f dev-env-dockerfile .
+# docker run --rm --name dev-env -p 2222:22 -v $HOME/Workspace:/home/dev/workspace -v dev-env-home:/home/dev dev-env:latest
+#
+# HOW-TO setup JAVA_HOME
+# Run the following commands after joining the container for the first time
+# jenv enable-plugin export
+# jenv add /lib/jvm/java-11-openjdk-amd64/
+# jenv add /lib/jvm/java-8-openjdk-amd64/
+# jenv global 11
+# exit
