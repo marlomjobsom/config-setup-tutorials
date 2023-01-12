@@ -67,6 +67,10 @@ RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
     printf '# FZF\n' >> $HOME/.bashrc && \
     printf '[ -f ~/.fzf.bash ] && source ~/.fzf.bash\n' >> $HOME/.bashrc
 
+# ENABLE GIT COMPLETION
+RUN printf '# GIT COMPLETION\n' >> $HOME/.bashrc && \
+    printf '[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash\n'
+
 VOLUME /home/dev
 
 ENTRYPOINT printf "dev\n" | sudo -S service ssh start && \
