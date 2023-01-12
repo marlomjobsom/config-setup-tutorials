@@ -9,7 +9,7 @@ RUN apt install sudo -y
 RUN apt install apt-utils gcc make cmake build-essential -y
 RUN apt install libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev python2-dev python3-dev unzip zip -y
 RUN apt install openssh-server curl apt-transport-https gnupg-agent -y
-RUN apt install git rsync aria2 openconnect autojump -y
+RUN apt install git rsync aria2 openconnect -y
 RUN apt install vim exuberant-ctags silversearcher-ag tmux tree -y
 RUN apt install virtualenv openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless -y
 
@@ -56,26 +56,37 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
     printf "dev\n" | sudo -S $HOME/.pyenv/versions/3.10.4/bin/python ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
     rm -rf awscli-bundle*
 
-# Build parameters
-ARG SSH_PUBLIC_KEY
+# AUTOJUMP
+RUN printf "dev\n" | sudo -S apt install autojump -y && \
+    printf '# AUTOJUMP\n' >> $HOME/.bashrc && \
+    printf '[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh\n' >> $HOME/.bashrc
 
-# Setup SSH host credential
-RUN mkdir $HOME/.ssh
-RUN echo $SSH_PUBLIC_KEY > $HOME/.ssh/authorized_keys
+# FZF
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
+    $HOME/.fzf/install --all && \
+    printf '# FZF\n' >> $HOME/.bashrc && \
+    printf '[ -f ~/.fzf.bash ] && source ~/.fzf.bash\n' >> $HOME/.bashrc
 
 VOLUME /home/dev
 
 ENTRYPOINT printf "dev\n" | sudo -S service ssh start && \
     tail -f /dev/null
 
-# HOW-TO build and run
-# docker build --build-arg SSH_PUBLIC_KEY="$(cat $HOME/.ssh/id_rsa.pub)" -t dev-env:latest -f dev-env-dockerfile .
-# docker run --rm --name dev-env -p 2222:22 -v $HOME/Workspace:/home/dev/workspace -v dev-env-home:/home/dev dev-env:latest
+# >>> HOW-TO build and run
+# docker build -t dev-env:latest -f dev-env-dockerfile .
+# docker run --rm --name dev-env -p 2222:22 -v $HOME/Workspace:/home/dev/workspace -v $HOME/.ssh:/home/dev/.ssh -v $HOME/.gitconfig:/home/dev/.gitconfig -v dev-env-home:/home/dev dev-env:latest
 #
-# HOW-TO setup JAVA_HOME
+# >>> HOW-TO setup JAVA_HOME
 # Run the following commands after joining the container for the first time
 # jenv enable-plugin export
 # jenv add /lib/jvm/java-11-openjdk-amd64/
 # jenv add /lib/jvm/java-8-openjdk-amd64/
 # jenv global 11
 # exit
+# 
+# >>> HOW-TO open a shell through Docker (similar to SSH)
+# docker exec -it dev-env bash
+#
+# >>> HOW-TO ssh the container (the password is the dev)
+# ssh -p 2222 dev@localhost
+#
