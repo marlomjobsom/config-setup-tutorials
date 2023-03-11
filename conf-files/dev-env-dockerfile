@@ -4,20 +4,23 @@ FROM ubuntu:22.04
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Base packages
-RUN apt update
+RUN apt update && apt upgrade -y
 RUN apt install sudo -y
-RUN apt install apt-utils gcc make cmake build-essential -y
-RUN apt install libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev python2-dev python3-dev unzip zip -y
+RUN apt install gcc make cmake build-essential libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev python2-dev python3-dev unzip zip -y
 RUN apt install openssh-server curl apt-transport-https gnupg-agent -y
 RUN apt install git rsync aria2 openconnect -y
 RUN apt install vim exuberant-ctags silversearcher-ag tmux tree -y
-RUN apt install virtualenv openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless -y
+RUN apt install virtualenv golang openjdk-17-jdk openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless -y
+RUN apt install apt-utils glibc-source groff less -y
+RUN apt install docker docker-compose -y
 
 # Setup users
 RUN echo 'root:root' | chpasswd && \
     useradd -m -U dev && \
     echo 'dev:dev' | chpasswd && \
-    adduser dev sudo
+    adduser dev sudo && \
+	adduser dev docker && \
+	gpasswd -a dev docker
 
 # Setup home folder
 USER dev
@@ -56,6 +59,12 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
     printf "dev\n" | sudo -S $HOME/.pyenv/versions/3.10.4/bin/python ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
     rm -rf awscli-bundle*
 
+# AWS SAM CLI
+RUN wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip && \
+	unzip aws-sam-cli-linux-x86_64.zip -d sam-installation && \
+	printf "dev\n" | sudo -S ./sam-installation/install && \
+	printf "dev\n" | sudo -S rm -rf aws-sam-cli-linux-x86_64.zip sam-installation
+
 # AUTOJUMP
 RUN printf '\n# AUTOJUMP\n' >> $HOME/.bashrc && \
     printf "dev\n" | sudo -S apt install autojump -y && \
@@ -66,31 +75,47 @@ RUN printf '\n# FZF' >> $HOME/.bashrc && \
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
     $HOME/.fzf/install --all
 
+# GO
+RUN printf '\n\n# GO\n' >> $HOME/.bashrc && \
+	printf 'export GOPATH=$HOME/.go' >> $HOME/.bashrc && \
+	printf 'export PATH=$PATH:$GOPATH/bin' >> $HOME/.bashrc
+
 # ENABLE GIT COMPLETION
 RUN printf '\n# GIT COMPLETION\n' >> $HOME/.bashrc && \
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $HOME/.git-completion.bash && \
     printf '[ -f $HOME/.git-completion.bash ] && . $HOME/.git-completion.bash\n' >> $HOME/.bashrc
 
+# ENABLE GIT BRANCH FOR PS1
+RUN printf '\n\n# GIT BRANCH FOR PS1\n' >> $HOME/.bashrc && \
+	printf '[ -f ~/.bash_git ] && source ~/.bash_git' >> $HOME/.bashrc && \
+	curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > $HOME/.bash_git
+
+# CUSTOM PS1
+RUN printf '\n\n# CUSTOM PS1\n' >> $HOME/.bashrc && \
+	printf "PS1='(container:\h) \[\033[33m\]\W\[\033[36m\]\`__git_ps1\`\[\033[0m\] → '" >> $HOME/.bashrc
+
 VOLUME /home/dev
+VOLUME /var/run/docker.sock
 
-ENTRYPOINT printf "dev\n" | sudo -S service ssh start && \
-    tail -f /dev/null
+ENTRYPOINT printf "dev\n" | sudo -S chown -R dev.dev /home/dev && \
+	printf "dev\n" | sudo -S service ssh start && \
+	printf "dev\n" | sudo -S chmod 777 /var/run/docker.sock && \
+	tail -f /dev/null
 
+#
+# >>> HOW-TO create a docker network 
+# docker network create dev-env
+#
 # >>> HOW-TO build and run
 # docker build -t dev-env:latest -f dev-env-dockerfile .
-# docker run --rm --name dev-env -p 2222:22 -v $HOME/Workspace:/home/dev/workspace -v $HOME/.ssh:/home/dev/.ssh -v $HOME/.gitconfig:/home/dev/.gitconfig -v dev-env-home:/home/dev dev-env:latest
+# docker run -d --rm --name dev-env --network dev-env -p 2222:22 -p 3000:3000 -p 5000:5000 -p 5050:5050 -p 8081:8081 -v "$C_HOME\\Workspace":/home/dev/Workspace -v "$C_HOME\\.ssh":/home/dev/.ssh -v "$C_HOME\\.aws":/home/dev/.aws -v "$C_HOME\\.gitconfig":/home/dev/.gitconfig -v dev-env-home:/home/dev -v dev-env-tmp:/tmp -v "//var/run/docker.sock:/var/run/docker.sock" dev-env:latest
 #
-# >>> HOW-TO setup JAVA_HOME
-# Run the following commands after joining the container for the first time
-# jenv enable-plugin export
-# jenv add /lib/jvm/java-11-openjdk-amd64/
-# jenv add /lib/jvm/java-8-openjdk-amd64/
-# jenv global 11
-# exit
-# 
-# >>> HOW-TO open a shell through Docker (similar to SSH)
+# >>> HOW-TO setup JAVA_HOME inside container
+# jenv enable-plugin export && jenv jenv add /lib/jvm/java-17-openjdk-amd64/ && jenv add /lib/jvm/java-11-openjdk-amd64/ && jenv add /lib/jvm/java-8-openjdk-amd64/ && jenv global 17 && exit
+#
+# >>> HOW-TO open a shell session in dev-env Docker container (similar to SSH)
 # docker exec -it dev-env bash
 #
-# >>> HOW-TO ssh the container (the password is the dev)
+# >>> HOW-TO ssh the dev-env Docker container (the password is the dev)
 # ssh -p 2222 dev@localhost
 #
