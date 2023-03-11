@@ -103,19 +103,24 @@ ENTRYPOINT printf "dev\n" | sudo -S chown -R dev.dev /home/dev && \
 	tail -f /dev/null
 
 #
-# >>> HOW-TO create a docker network 
+# >>> HOW-TO create a network 
 # docker network create dev-env
 #
-# >>> HOW-TO build and run
+# >>> HOW-TO build
 # docker build -t dev-env:latest -f dev-env-dockerfile .
-# docker run -d --rm --name dev-env --network dev-env -p 2222:22 -p 3000:3000 -p 5000:5000 -p 5050:5050 -p 8081:8081 -v "$C_HOME\\Workspace":/home/dev/Workspace -v "$C_HOME\\.ssh":/home/dev/.ssh -v "$C_HOME\\.aws":/home/dev/.aws -v "$C_HOME\\.gitconfig":/home/dev/.gitconfig -v dev-env-home:/home/dev -v dev-env-tmp:/tmp -v "//var/run/docker.sock:/var/run/docker.sock" dev-env:latest
 #
-# >>> HOW-TO setup JAVA_HOME inside container
+# >>> HOW-TO run in Linux
+# docker run -d --rm --name dev-env --network dev-env -p 2222:22 -v $HOME/Workspace:/home/dev/Workspace -v $HOME/.ssh:/home/dev/.ssh -v $HOME/.aws:/home/dev/.aws -v $HOME/.gitconfig:/home/dev/.gitconfig -v dev-env-home:/home/dev -v dev-env-tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock dev-env:latest
+#
+# >>> HOW-TO run in Windows using GitBash
+# docker run -d --rm --name dev-env --network dev-env -p 2222:22 -v "C:\\Users\\USER\\Workspace":/home/dev/Workspace -v "C:\\Users\\USER\\.ssh":/home/dev/.ssh -v "C:\\Users\\USER\\.aws":/home/dev/.aws -v "C:\\Users\\USER\\.gitconfig":/home/dev/.gitconfig -v dev-env-home:/home/dev -v dev-env-tmp:/tmp -v "//var/run/docker.sock:/var/run/docker.sock" dev-env:latest
+#
+# >>> HOW-TO setup JAVA_HOME in the container
 # jenv enable-plugin export && jenv jenv add /lib/jvm/java-17-openjdk-amd64/ && jenv add /lib/jvm/java-11-openjdk-amd64/ && jenv add /lib/jvm/java-8-openjdk-amd64/ && jenv global 17 && exit
 #
-# >>> HOW-TO open a shell session in dev-env Docker container (similar to SSH)
+# >>> HOW-TO open a shell session in dev-env container (similar to SSH)
 # docker exec -it dev-env bash
 #
-# >>> HOW-TO ssh the dev-env Docker container (the password is the dev)
+# >>> HOW-TO ssh the dev-env container (the password is the dev)
 # ssh -p 2222 dev@localhost
 #
