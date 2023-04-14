@@ -45,17 +45,6 @@ RUN git clone https://github.com/jenv/jenv.git $HOME/.jenv && \
     echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> $HOME/.bashrc && \
     echo 'eval "$(jenv init -)"' >> $HOME/.bashrc
 
-# NVM
-RUN printf '\n# NVM\n' >> $HOME/.bashrc && \
-    printf 'export NVM_DIR="$HOME/.nvm"\n' >> $HOME/.bashrc && \
-    printf '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm\n' >> $HOME/.bashrc && \
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
-    . $HOME/.nvm/nvm.sh && \
-    nvm install --lts && \
-    printf "dev\n" | sudo -S ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/node /usr/bin/node && \
-    printf "dev\n" | sudo -S ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/npm /usr/bin/npm && \
-    printf "dev\n" | sudo -S ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/electron
-
 # AWS CLI
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
     unzip awscli-bundle.zip && \
