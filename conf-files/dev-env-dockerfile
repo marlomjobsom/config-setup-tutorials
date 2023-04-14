@@ -4,15 +4,18 @@ FROM ubuntu:22.04
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Base packages
+RUN yes | unminimize
 RUN apt update && apt upgrade -y
 RUN apt install sudo -y
 RUN apt install gcc make cmake build-essential libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev python2-dev python3-dev unzip zip -y
-RUN apt install openssh-server curl apt-transport-https gnupg-agent -y
-RUN apt install git rsync aria2 openconnect -y
-RUN apt install vim exuberant-ctags silversearcher-ag tmux tree -y
+RUN apt install openssh-server curl apt-transport-https gnupg-agent inetutils-ping rsync aria2 openconnect -y
+RUN apt install git vim exuberant-ctags silversearcher-ag tmux tree -y
 RUN apt install virtualenv golang openjdk-17-jdk openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless -y
 RUN apt install apt-utils glibc-source groff less -y
 RUN apt install docker docker-compose -y
+
+# Clear installation packages
+RUN apt clean -y
 
 # Setup users
 RUN echo 'root:root' | chpasswd && \
@@ -97,7 +100,7 @@ RUN printf '\n\n# CUSTOM PS1\n' >> $HOME/.bashrc && \
 VOLUME /home/dev
 VOLUME /var/run/docker.sock
 
-ENTRYPOINT printf "dev\n" | sudo -S chown -R dev.dev /home/dev && \
+ENTRYPOINT \
 	printf "dev\n" | sudo -S service ssh start && \
 	printf "dev\n" | sudo -S chmod 777 /var/run/docker.sock && \
 	tail -f /dev/null
