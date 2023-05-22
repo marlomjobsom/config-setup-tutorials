@@ -126,7 +126,7 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 celluloid -y
+sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 celluloid nautilus-image-converter -y
 ```
 
 ```shell
