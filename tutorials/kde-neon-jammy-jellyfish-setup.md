@@ -52,7 +52,7 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install synaptic -y
+sudo apt install synaptic filelight sweeper -y
 ```
 
 ### Styling
@@ -92,6 +92,10 @@ sudo apt install wine playonlinux -y
 ### Communication
 
 ```shell
+sudo apt install kmail kontact -y
+```
+
+```shell
 flatpak --user install flathub \
     org.telegram.desktop \
     io.github.mimbrero.WhatsAppDesktop -y
@@ -100,13 +104,13 @@ flatpak --user install flathub \
 ### Productivity
 
 ```shell
-sudo apt install fsearch mlocate zeitgeist autojump -y
+sudo apt install fsearch mlocate zeitgeist autojump kalendar kclock -y
 ```
 
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br cherrytree -y
+sudo apt install libreoffice libreoffice-l10n-pt-br cherrytree ghostwriter -y
 ```
 
 ```shell
@@ -124,13 +128,13 @@ echo '[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/aut
 ### Dictionary
 
 ```shell
-sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gcide dict-wn goldendict hunspell hunspell-pt-br hunspell-en-us -y
+sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gcide dict-wn goldendict hunspell hunspell-pt-br hunspell-en-us kamoso -y
 ```
 
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-restricted-extras shotwell puddletag vlc mda-lv2 -y
+sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-restricted-extras koko puddletag vlc mda-lv2 elisa kid3 -y
 ```
 
 ```shell
@@ -142,7 +146,7 @@ flatpak --user install flathub \
 ### Development
 
 ```shell
-sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server meld zeal virtualbox dia -y
+sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server kompare zeal virtualbox dia -y
 ```
 
 ```shell
@@ -203,7 +207,7 @@ sudo gpasswd -a $USER docker
 ### Network
 
 ```shell
-sudo apt install rsync tmate aria2 openconnect network-manager-openconnect network-manager-ssh -y
+sudo apt install rsync tmate aria2 openconnect network-manager-openconnect network-manager-ssh ktorrent -y
 ```
 
 #### Wireshark
