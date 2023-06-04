@@ -141,6 +141,7 @@ sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-
 flatpak --user install flathub \
     org.gimp.GIMP \
     org.kde.kasts \
+    com.ozmartians.VidCutter \
     com.github.flxzt.rnote -y
 ```
 
