@@ -140,6 +140,7 @@ sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-
 ```shell
 flatpak --user install flathub \
     org.gimp.GIMP \
+    org.kde.kasts \
     com.github.flxzt.rnote -y
 ```
 
@@ -163,8 +164,8 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
 source ~/.bashrc
-pyenv install 3.10.4
 pyenv install 2.7.18
+pyenv install 3.10.4
 pyenv global 3.10.4
 ```
 
