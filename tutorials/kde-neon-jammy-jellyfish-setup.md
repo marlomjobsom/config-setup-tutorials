@@ -71,6 +71,14 @@ make
 sudo make install
 ```
 
+#### LightlyShaders
+
+```shell
+git clone https://github.com/a-parhom/LightlyShaders
+cd LightlyShaders;
+mkdir qt5build; cd qt5build; cmake ../ -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install
+```
+
 #### KDE-Rounded-Corners
 
 ```shell
