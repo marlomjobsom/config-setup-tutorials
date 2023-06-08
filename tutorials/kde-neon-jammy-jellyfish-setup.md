@@ -79,18 +79,6 @@ cd LightlyShaders;
 mkdir qt5build; cd qt5build; cmake ../ -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install
 ```
 
-#### KDE-Rounded-Corners
-
-```shell
-git clone https://github.com/matinlotfali/KDE-Rounded-Corners
-cd KDE-Rounded-Corners
-mkdir build
-cd build
-cmake ..
-make
-sudo make install
-```
-
 ### Windows compatibility layer
 
 ```shell
