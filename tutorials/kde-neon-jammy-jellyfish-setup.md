@@ -124,13 +124,13 @@ echo '[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/aut
 ### Dictionary
 
 ```shell
-sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gcide dict-wn goldendict hunspell hunspell-pt-br hunspell-en-us kamoso -y
+sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gcide dict-wn goldendict hunspell hunspell-pt-br hunspell-en-us -y
 ```
 
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-restricted-extras koko puddletag vlc mda-lv2 elisa kid3 -y
+sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-restricted-extras koko puddletag vlc mda-lv2 elisa kid3 kamoso -y
 ```
 
 ```shell
