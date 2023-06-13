@@ -33,7 +33,7 @@ sudo apt update && sudo apt upgrade -y
 ### Packages for compilation
 
 ```shell
-sudo apt install build-essential cmake dialog extra-cmake-modules g++ gcc gettext git kinit-dev kwin-dev libappindicator3-1 libbz2-dev libffi-dev libkdecorations2-dev libkf5config-dev libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5globalaccel-dev libkf5guiaddons-dev libkf5iconthemes-dev libkf5kio-dev libkf5notifications-dev libkf5windowsystem-dev libqt5x11extras5-dev libreadline-dev libsqlite3-dev libssl-dev make python3-dev qt3d5-dev qtdeclarative5-dev qttools5-dev -y
+sudo apt install build-essential cmake dialog extra-cmake-modules g++ gcc gettext git kinit-dev kwin-dev libappindicator3-1 libappindicator3-dev libasound2-dev libavutil-dev libbz2-dev libffi-dev libgtk-3-dev libkdecorations2-dev libkf5config-dev libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5globalaccel-dev libkf5guiaddons-dev libkf5iconthemes-dev libkf5kio-dev libkf5notifications-dev libkf5windowsystem-dev libplist-dev libqt5x11extras5-dev libreadline-dev libspeex-dev libsqlite3-dev libssl-dev libswscale-dev libturbojpeg0-dev libusbmuxd-dev make python3-dev qt3d5-dev qtdeclarative5-dev qttools5-dev v4l2loopback-dkms v4l2loopback-utils -y
 ```
 
 ### Packages for repositories management
