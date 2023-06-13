@@ -42,20 +42,6 @@ sudo apt install build-essential cmake dialog extra-cmake-modules g++ gcc gettex
 sudo apt install curl apt-transport-https gnupg-agent -y
 ```
 
-### Add extra repositories
-
-#### CherryTree
-
-```shell
-sudo add-apt-repository ppa:giuspen/ppa
-```
-
-#### FSearch
-
-```shell
-sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
-```
-
 #### Flatpak: Flathub
 
 ```shell
@@ -122,7 +108,9 @@ sudo apt install fsearch mlocate zeitgeist autojump kalendar -y
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br cherrytree ghostwriter -y
+sudo apt install libreoffice libreoffice-l10n-pt-br ghostwriter -y
+curl -L -O https://launchpad.net/~giuspen/+archive/ubuntu/ppa/+files/cherrytree_0.99.55-4_amd64.deb
+sudo dpkg -i cherrytree_0.99.55-4_amd64.deb
 ```
 
 ```shell
