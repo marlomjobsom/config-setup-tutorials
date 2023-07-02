@@ -1,6 +1,6 @@
-# Ubuntu 22.04 LTS Setup
+# Elementary OS 7 Horus
 
-**Version**: [Jammy Jellyfish 64-bits](https://releases.ubuntu.com/22.04/ubuntu-22.04-desktop-amd64.iso)
+**Version**: [Horus 64-bits](https://ams3.dl.elementary.io/download/MTY4ODI2MjQ3Nw==/elementaryos-7.0-stable.20230129rc.iso)
 **Notebooks**:
 
 * [Inspiron 7460 14"](http://www.dell.com/br/p/inspiron-14-7460-laptop/pd?ref=491_title&oc=cai7460w10he1852539brpw&model_id=inspiron-14-7460-laptop)
@@ -23,7 +23,7 @@ sudo apt install gcc make cmake build-essential python2-dev python3-dev libssl-d
 ### Packages for repositories management
 
 ```shell
-sudo apt install curl apt-transport-https gnupg-agent -y
+sudo apt install curl apt-transport-https gnupg-agent software-properties-common python3-software-properties -y
 ```
 
 ### Add extra repositories
@@ -58,7 +58,7 @@ sudo su -c "echo 'deb [signed-by=/etc/apt/trusted.gpg.d/la-capitaine.gpg] http:/
 #### Flatpak: Flathub
 
 ```shell
-sudo apt install flatpak gnome-software-plugin-flatpak -y
+sudo apt install flatpak -y
 flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
@@ -67,19 +67,21 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install synaptic dconf-editor gnome-tweaks gnome-shell-extension-manager -y
+sudo apt install synaptic dconf-editor gnome-tweaks -y
 ```
+
+* Enable Workspaces on all monitors: `gsettings set org.gnome.mutter workspaces-only-on-primary false`
 
 ### Styling
 
 ```shell
-sudo apt install chrome-gnome-shell papirus-icon-theme la-capitaine-cursor-theme -y
+sudo apt install papirus-icon-theme la-capitaine-cursor-theme -y
 ```
 
 ### Windows compatibility layer
 
 ```shell
-    sudo apt install wine playonlinux -y
+sudo apt install wine playonlinux -y
 ```
 
 ### Communication
@@ -94,7 +96,7 @@ flatpak --user install flathub \
 ### Productivity
 
 ```shell
-sudo apt install synapse mlocate zeitgeist autojump gnome-shell-extensions-gpaste gnome-sushi gnome-calendar gnome-contacts gnome-clocks gnome-todo fsearch -y
+sudo apt install synapse mlocate zeitgeist autojump fsearch -y
 ```
 
 ### Reading & Writing
@@ -126,15 +128,16 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras cheese shotwell puddletag vlc pulseeffects mda-lv2 celluloid nautilus-image-converter -y
+sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl ubuntu-restricted-addons ubuntu-restricted-extras puddletag vlc mda-lv2 celluloid -y
 ```
 
 ```shell
 flatpak --user install flathub \
-    org.gnome.Lollypop \
+    com.github.artemanufrij.playmymusic \
     org.gimp.GIMP \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
-    org.gnome.Podcasts \
+    com.github.needleandthread.vocal \
+    io.gitlab.adhami3310.Footage \
     com.github.flxzt.rnote -y
 ```
 
@@ -206,30 +209,10 @@ sudo apt install docker docker-compose -y
 sudo gpasswd -a $USER docker
 ```
 
-#### Kubernetes
-
-##### Kubectl
-
-```shell
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo install kubectl /usr/local/bin/
-rm kubectl
-```
-
-##### Minikube
-
-```shell
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod +x minikube
-sudo install minikube /usr/local/bin/
-rm minikube
-```
-
 ### Network
 
 ```shell
-sudo apt install rsync tmate gufw aria2 openconnect network-manager-openconnect network-manager-openconnect-gnome network-manager-openvpn network-manager-openvpn-gnome network-manager-ssh network-manager-ssh-gnome -y
+sudo apt install rsync tmate gufw aria2 openconnect -y
 ```
 
 #### Wireshark
