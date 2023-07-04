@@ -1,4 +1,4 @@
-# Debian 12 (Bookworm) KDE Setup
+# Debian 12 (Bookworm) Gnome Setup
 
 **Version**: [Bookworm 64-bits](https://debian.osuosl.org/debian-cdimage/12.0.0/amd64/iso-dvd/debian-12.0.0-amd64-DVD-1.iso)
 **Notebooks**:
@@ -53,12 +53,12 @@ curl -fsSL https://download.opensuse.org/repositories/home:cboxdoerfer/Debian_Un
 sudo apt update
 ```
 
-#### La-capitaine
+#### La-capitaine cursor
 
 ```shell
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C65A650570C1DA17B725012BC012ECBBC24D881
-sudo apt-key export BC24D881 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/la-capitaine.gpg
-sudo su -c "echo 'deb [signed-by=/etc/apt/trusted.gpg.d/la-capitaine.gpg] http://ppa.launchpad.net/dyatlov-igor/la-capitaine/ubuntu cosmic main' > /etc/apt/sources.list.d/la-capitaine.list"
+# Download "capitaine-cursors-r3.tar.gz" it from https://www.pling.com/p/1148692
+mkdir capitaine-cursors && tar -zxf capitaine-cursors-r3.tar.gz -C capitaine-cursors
+sudo mv capitaine-cursors /usr/share/icons/
 ```
 
 #### Celluloid
