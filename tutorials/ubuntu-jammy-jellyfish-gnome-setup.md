@@ -70,6 +70,10 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 sudo apt install synaptic dconf-editor gnome-tweaks gnome-shell-extension-manager -y
 ```
 
+```shell
+flatpak --user flathub install com.github.tchx84.Flatseal -y
+```
+
 ### Styling
 
 ```shell
