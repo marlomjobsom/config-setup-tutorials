@@ -72,7 +72,7 @@ sudo su -c "echo 'deb https://ppa.launchpadcontent.net/xuzhen666/gnome-mpv/ubunt
 #### Flatpak: Flathub
 
 ```shell
-sudo apt install flatpak plasma-discover-backend-flatpak -y
+sudo apt install flatpak gnome-software-plugin-flatpak -y
 flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
@@ -81,7 +81,7 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install synaptic printer-driver-all system-config-printer dconf-editor gnome-tweaks gnome-shell-extension-manager -y
+sudo apt install synaptic printer-driver-all system-config-printer dconf-editor gnome-tweaks -y
 ```
 
 ```shell
