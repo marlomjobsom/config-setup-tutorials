@@ -145,14 +145,16 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder pavucontrol playerctl cheese shotwell puddletag vlc mda-lv2 celluloid nautilus-image-converter -y
+sudo apt install soundconverter ffmpeg mencoder easyeffects pavucontrol playerctl cheese shotwell puddletag vlc mda-lv2 celluloid nautilus-image-converter -y
 ```
 
 ```shell
 flatpak --user install flathub \
     org.gimp.GIMP \
-    com.ozmartians.VidCutter \
+    org.gnome.Loupe \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
+    io.gitlab.adhami3310.Footage \
+    org.audacityteam.Audacity \
     com.github.flxzt.rnote \
     org.gnome.Lollypop \
     org.gnome.Podcasts \
