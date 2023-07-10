@@ -125,6 +125,7 @@ curl -L -O https://www.giuspen.net/software/cherrytree_0.99.56-2~Debian12_amd64.
 ```shell
 flatpak --user install flathub \
     com.calibre_ebook.calibre \
+    com.github.johnfactotum.Foliate \
     org.gnome.gitlab.somas.Apostrophe \
     app.drey.Dialect -y
 ```
