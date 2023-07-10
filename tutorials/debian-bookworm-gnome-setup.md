@@ -156,7 +156,8 @@ flatpak --user install flathub \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
     io.gitlab.adhami3310.Footage \
     org.audacityteam.Audacity \
-    com.github.flxzt.rnote \
+    org.nickvision.tagger \
+    app.drey.EarTag \
     org.gnome.Lollypop \
     org.gnome.Podcasts \
     com.github.flxzt.rnote -y
