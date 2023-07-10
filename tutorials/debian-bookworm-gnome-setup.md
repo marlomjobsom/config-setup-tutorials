@@ -150,17 +150,17 @@ sudo apt install soundconverter ffmpeg mencoder easyeffects pavucontrol playerct
 ```
 
 ```shell
-flatpak --user install flathub \
-    org.gimp.GIMP \
-    org.gnome.Loupe \
-    org.gnome.gitlab.YaLTeR.VideoTrimmer \
-    io.gitlab.adhami3310.Footage \
-    org.audacityteam.Audacity \
-    org.nickvision.tagger \
-    app.drey.EarTag \
-    org.gnome.Lollypop \
-    org.gnome.Podcasts \
-    com.github.flxzt.rnote -y
+    flatpak --user install flathub \
+        org.gimp.GIMP \
+        org.gnome.Loupe \
+        org.gnome.gitlab.YaLTeR.VideoTrimmer \
+        io.gitlab.adhami3310.Footage \
+        org.audacityteam.Audacity \
+        org.nickvision.tagger \
+        app.drey.EarTag \
+        org.gnome.Lollypop \
+        org.gnome.Podcasts \
+        com.github.flxzt.rnote -y
 ```
 
 ### Development
