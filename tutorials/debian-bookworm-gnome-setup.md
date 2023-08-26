@@ -8,6 +8,13 @@
 
 ## System setup
 
+### Update `/etc/bluetooth/main.conf`
+
+```shell
+sudo sed -i "s/#Experimental = false/Experimental = true/" /etc/bluetooth/main.conf
+sudo systemctl restart bluetooth
+```
+
 ### Update `/etc/apt/sources.list`
 
 ```shell
