@@ -134,6 +134,7 @@ flatpak --user install flathub \
     com.calibre_ebook.calibre \
     com.github.johnfactotum.Foliate \
     org.gnome.gitlab.somas.Apostrophe \
+    md.obsidian.Obsidian \
     app.drey.Dialect -y
 ```
 
