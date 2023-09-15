@@ -40,7 +40,7 @@ sudo apt update && sudo apt upgrade -y
 ### Base packages
 
 ```shell
-sudo apt install gcc make cmake build-essential python3-dev libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev dialog libfmt9 libgtksourceview-3.0-1 libgtksourceview-3.0-common libgtksourceviewmm-3.0-0v5 libspdlog1.10 libxml++2.6-2v5 linux-headers-`uname -r` -y
+sudo apt install build-essential cmake dialog gcc libbz2-dev libedit-dev libffi-dev libfmt9 libgtksourceview-3.0-1 libgtksourceview-3.0-common libgtksourceviewmm-3.0-0v5 libreadline-dev libspdlog1.10 libsqlite3-dev libssl-dev libxml++2.6-2v5 linux-headers-`uname -r` make python3-dev python3-tk tk-dev zlib1g zlib1g-dev -y
 ```
 
 ### Packages for repositories management
