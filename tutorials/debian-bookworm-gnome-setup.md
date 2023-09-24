@@ -111,7 +111,6 @@ sudo apt install wine -y
 
 ```shell
 flatpak --user install flathub \
-    org.gnome.Geary \
     org.telegram.desktop \
     io.github.mimbrero.WhatsAppDesktop -y
 ```
@@ -132,10 +131,8 @@ curl -L -O https://www.giuspen.net/software/cherrytree_0.99.56-2~Debian12_amd64.
 ```shell
 flatpak --user install flathub \
     com.calibre_ebook.calibre \
-    com.github.johnfactotum.Foliate \
     org.gnome.gitlab.somas.Apostrophe \
-    md.obsidian.Obsidian \
-    app.drey.Dialect -y
+    md.obsidian.Obsidian -y
 ```
 
 #### `autojump`
@@ -158,17 +155,15 @@ sudo apt install soundconverter ffmpeg mencoder easyeffects pavucontrol playerct
 ```
 
 ```shell
-    flatpak --user install flathub \
-        org.gimp.GIMP \
-        org.gnome.Loupe \
-        org.gnome.gitlab.YaLTeR.VideoTrimmer \
-        io.gitlab.adhami3310.Footage \
-        org.audacityteam.Audacity \
-        org.nickvision.tagger \
-        app.drey.EarTag \
-        org.gnome.Lollypop \
-        org.gnome.Podcasts \
-        com.github.flxzt.rnote -y
+flatpak --user install flathub \
+    org.gimp.GIMP \
+    org.gnome.Loupe \
+    org.gnome.gitlab.YaLTeR.VideoTrimmer \
+    io.gitlab.adhami3310.Footage \
+    org.audacityteam.Audacity \
+    org.gnome.Lollypop \
+    org.gnome.Podcasts \
+    com.github.flxzt.rnote -y
 ```
 
 ### Development
@@ -178,8 +173,8 @@ sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree
 ```
 
 ```shell
-flatpak --user install \
-    flathub com.getpostman.Postman \
+flatpak --user install flathub \
+    com.getpostman.Postman \
     com.raggesilver.BlackBox -y
 ```
 
