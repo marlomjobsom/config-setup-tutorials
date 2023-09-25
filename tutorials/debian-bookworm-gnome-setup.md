@@ -124,8 +124,7 @@ sudo apt install mlocate zeitgeist autojump gnome-sushi gnome-calendar gnome-con
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br libreoffice-style-sifr -y
-curl -L -O https://www.giuspen.net/software/cherrytree_0.99.56-2~Debian12_amd64.deb && sudo dpkg -i cherrytree_0.99.56-2~Debian12_amd64.deb && rm cherrytree_0.99.56-2~Debian12_amd64.deb  
+sudo apt install libreoffice libreoffice-l10n-pt-br libreoffice-style-sifr qpdfview -y
 ```
 
 ```shell
