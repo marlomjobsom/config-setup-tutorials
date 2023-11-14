@@ -131,6 +131,7 @@ sudo apt install libreoffice libreoffice-l10n-pt-br libreoffice-style-sifr qpdfv
 flatpak --user install flathub \
     com.calibre_ebook.calibre \
     org.gnome.gitlab.somas.Apostrophe \
+    com.github.johnfactotum.Foliate \
     com.github.geigi.cozy \
     md.obsidian.Obsidian -y
 ```
