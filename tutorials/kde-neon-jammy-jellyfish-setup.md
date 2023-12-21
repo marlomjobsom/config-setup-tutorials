@@ -128,7 +128,7 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-restricted-extras koko puddletag vlc mda-lv2 elisa kid3 kamoso -y
+sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-restricted-extras koko puddletag vlc mda-lv2 elisa kid3 kamoso haruna -y
 ```
 
 ```shell
