@@ -17,7 +17,7 @@ sudo apt update && sudo apt upgrade -y
 ### Packages for compilation
 
 ```shell
-sudo apt install build-essential cmake dialog extra-cmake-modules g++ gcc gettext kwin-dev libbz2-dev libffi-dev libkdecorations2-dev libkf5config-dev libkf5configwidgets-dev libkf5coreaddons-dev libkf5globalaccel-dev libkf5guiaddons-dev libkf5iconthemes-dev libkf5notifications-dev libkf5windowsystem-dev libqt5x11extras5-dev libreadline-dev libsqlite3-dev libssl-dev make python2-dev python3-dev qt3d5-dev qtdeclarative5-dev qttools5-dev libappindicator3-1 -y
+sudo apt install build-essential cmake dialog extra-cmake-modules g++ gcc gettext git kinit-dev kwin-dev libappindicator3-1 libbz2-dev libffi-dev libkdecorations2-dev libkf5config-dev libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5globalaccel-dev libkf5guiaddons-dev libkf5iconthemes-dev libkf5kio-dev libkf5notifications-dev libkf5windowsystem-dev libqt5x11extras5-dev libreadline-dev libsqlite3-dev libssl-dev liblzma-dev make python2-dev python3-dev python3-tk qt3d5-dev qtdeclarative5-dev qttools5-dev -y
 ```
 
 ### Packages for repositories management
@@ -27,12 +27,6 @@ sudo apt install curl apt-transport-https gnupg-agent -y
 ```
 
 ### Add extra repositories
-
-#### CherryTree
-
-```shell
-sudo add-apt-repository ppa:giuspen/ppa
-```
 
 #### FSearch
 
@@ -106,12 +100,16 @@ sudo apt install fsearch mlocate zeitgeist autojump kalendar kclock -y
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br cherrytree ghostwriter -y
+sudo apt install libreoffice libreoffice-l10n-pt-br -y
 ```
 
 ```shell
 flatpak --user install flathub \
-    com.calibre_ebook.calibre -y
+    com.calibre_ebook.calibre \
+    org.gnome.gitlab.somas.Apostrophe \
+    com.github.johnfactotum.Foliate \
+    com.github.geigi.cozy \
+    md.obsidian.Obsidian -y
 ```
 
 #### `autojump`
@@ -136,6 +134,7 @@ sudo apt install soundconverter ffmpeg mencoder ubuntu-restricted-addons ubuntu-
 ```shell
 flatpak --user install flathub \
     org.gimp.GIMP \
+    org.audacityteam.Audacity \
     org.kde.kasts \
     com.ozmartians.VidCutter \
     com.github.flxzt.rnote -y
@@ -144,7 +143,7 @@ flatpak --user install flathub \
 ### Development
 
 ```shell
-sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-11-jdk openjdk-11-jdk-headless openjdk-8-jdk openjdk-8-jdk-headless openssh-server kompare zeal virtualbox dia -y
+sudo apt install bash-completion dia dia exuberant-ctags exuberant-ctags git git kompare openjdk-8-jdk openjdk-8-jdk-headless openjdk-11-jdk openjdk-11-jdk-headless openjdk-17-jdk openjdk-17-jdk-headless openssh-server silversearcher-ag tmux tree vim-gtk3 virtualbox virtualenv zeal -y
 ```
 
 ```shell
@@ -161,9 +160,10 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
 source ~/.bashrc
-pyenv install 2.7.18
-pyenv install 3.10.4
-pyenv global 3.10.4
+pyenv install 2.7
+pyenv install 3.10
+pyenv install 3.11
+pyenv global 3.11
 ```
 
 #### `poetry`
