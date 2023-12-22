@@ -137,6 +137,7 @@ flatpak --user install flathub \
     org.audacityteam.Audacity \
     org.kde.kasts \
     com.ozmartians.VidCutter \
+    dev.aunetx.deezer \
     com.github.flxzt.rnote -y
 ```
 
