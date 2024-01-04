@@ -64,7 +64,7 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install synaptic filelight sweeper dolphin-plugins printer-driver-all system-config-printer -y
+sudo apt install synaptic filelight sweeper dolphin-plugins printer-driver-all system-config-printer power-profiles-daemon powerdevil -y
 ```
 
 ### Styling
