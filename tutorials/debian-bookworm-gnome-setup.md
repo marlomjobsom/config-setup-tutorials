@@ -124,7 +124,7 @@ sudo apt install mlocate zeitgeist autojump gnome-sushi gnome-calendar gnome-con
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br libreoffice-style-sifr qpdfview -y
+sudo apt install libreoffice libreoffice-l10n-pt-br libreoffice-style-sifr -y
 ```
 
 ```shell

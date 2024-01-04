@@ -33,7 +33,8 @@ sudo apt update && sudo apt upgrade -y
 ### Packages for compilation
 
 ```shell
-sudo apt install build-essential cmake dialog extra-cmake-modules g++ gcc gettext git kinit-dev kwin-dev libappindicator3-1 libappindicator3-dev libasound2-dev libavutil-dev libbz2-dev libffi-dev libgtk-3-dev libkdecorations2-dev libkf5config-dev libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5globalaccel-dev libkf5guiaddons-dev libkf5iconthemes-dev libkf5kio-dev libkf5notifications-dev libkf5windowsystem-dev libplist-dev libqt5x11extras5-dev libreadline-dev libspeex-dev libsqlite3-dev libssl-dev libswscale-dev libturbojpeg0-dev libusbmuxd-dev make python3-dev qt3d5-dev qtdeclarative5-dev qttools5-dev v4l2loopback-dkms v4l2loopback-utils -y
+sudo apt install bash-completion build-essential cmake dialog extra-cmake-modules g++ gcc gettext git kinit-dev kwin-dev libappindicator3-1 libappindicator3-dev libasound2-dev libavutil-dev libbz2-dev libffi-dev libgtk-3-dev libkdecorations2-dev libkf5config-dev libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5globalaccel-dev libkf5guiaddons-dev libkf5iconthemes-dev libkf5kio-dev libkf5notifications-dev libkf5windowsystem-dev liblzma-dev libplist-dev libqt5x11extras5-dev libreadline-dev libspeex-dev libsqlite3-dev libssl-dev libswscale-dev libturbojpeg0-dev libusbmuxd-dev make python3-dev python3-tk qt3d5-dev qtdeclarative5-dev qttools5-dev v4l2loopback-dkms v4l2loopback-utils -y
+
 ```
 
 ### Packages for repositories management
@@ -63,7 +64,7 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install synaptic filelight sweeper dolphin-plugins printer-driver-all system-config-printe -y
+sudo apt install synaptic filelight sweeper dolphin-plugins printer-driver-all system-config-printer -y
 ```
 
 ### Styling
@@ -87,7 +88,8 @@ sudo make install
 ```shell
 git clone https://github.com/a-parhom/LightlyShaders
 cd LightlyShaders;
-mkdir qt5build; cd qt5build; cmake ../ -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install
+mkdir qt5build; cd qt5build; cmake ../ -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install && (kwin_x11 --replace &)
+
 ```
 
 ### Windows compatibility layer
@@ -99,7 +101,7 @@ sudo apt install wine -y
 ### Communication
 
 ```shell
-sudo apt install kmail kontact -y
+sudo apt install kmail kontact kalendar -y
 ```
 
 ```shell
@@ -111,20 +113,22 @@ flatpak --user install flathub \
 ### Productivity
 
 ```shell
-sudo apt install fsearch mlocate zeitgeist autojump kalendar -y
+sudo apt install fsearch mlocate zeitgeist autojump -y
 ```
 
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-l10n-pt-br ghostwriter -y
-curl -L -O https://launchpad.net/~giuspen/+archive/ubuntu/ppa/+files/cherrytree_0.99.55-4_amd64.deb
-sudo dpkg -i cherrytree_0.99.55-4_amd64.deb
+sudo apt install libreoffice libreoffice-style-sifr libreoffice-l10n-pt-br qpdfview -y
 ```
 
 ```shell
 flatpak --user install flathub \
-    com.calibre_ebook.calibre -y
+    com.calibre_ebook.calibre \
+    org.gnome.gitlab.somas.Apostrophe \
+    com.github.johnfactotum.Foliate \
+    com.github.geigi.cozy \
+    md.obsidian.Obsidian -y
 ```
 
 #### `autojump`
@@ -143,7 +147,7 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder puddletag vlc mda-lv2 elisa kid3 kamoso -y
+sudo apt install soundconverter ffmpeg mencoder puddletag vlc mda-lv2 elisa kamoso haruna -y
 ```
 
 ```shell
@@ -151,17 +155,16 @@ flatpak --user install flathub \
     org.gimp.GIMP \
     org.kde.kasts \
     com.ozmartians.VidCutter \
-    com.github.flxzt.rnote -y
+    org.kde.koko \
+    com.github.flxzt.rnote \
+    org.audacityteam.Audacity \
+    dev.aunetx.deezer -y
 ```
 
 ### Development
 
 ```shell
-sudo apt install virtualenv vim-gtk3 exuberant-ctags silversearcher-ag tmux tree git openjdk-17-jdk openjdk-17-jdk-headless openssh-server kompare zeal virtualbox dia bash-completion -y
-```
-
-```shell
-flatpak --user install flathub com.getpostman.Postman -y
+sudo apt install dia exuberant-ctags git kompare openjdk-17-jdk openjdk-17-jdk-headless openssh-server silversearcher-ag tmux tree vim-gtk3 virtualenv zeal -y
 ```
 
 #### `pyenv`
