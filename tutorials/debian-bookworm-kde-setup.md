@@ -64,7 +64,7 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install cpupower dolphin-plugins evil filelight i7z kaccounts-* kio-gdrive linux-cpupower power-calibrate power-profiles-daemon powerd powerdevil* powermgmt-base printer-driver-all sweeper synaptic system-config-printer thermald werdevil-dev -y
+sudo apt install bluez bluez-alsa-utils bluez-firmware bluez-tools cpupower dolphin-plugins evil filelight i7z kaccounts-* kio-gdrive linux-cpupower power-calibrate power-profiles-daemon powerd powerdevil* powermgmt-base printer-driver-all sweeper synaptic system-config-printer thermald werdevil-dev -y
 ```
 
 ```shell
