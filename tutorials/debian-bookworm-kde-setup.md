@@ -152,7 +152,7 @@ sudo apt install dictd dict dict-freedict-por-eng dict-freedict-eng-por dict-gci
 ### Multimedia
 
 ```shell
-sudo apt install soundconverter ffmpeg mencoder puddletag vlc mda-lv2 elisa kamoso haruna -y
+sudo apt install pavucontrol-qt* soundconverter ffmpeg mencoder puddletag vlc mda-lv2 elisa kamoso haruna -y
 ```
 
 ```shell
