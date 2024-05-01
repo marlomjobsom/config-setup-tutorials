@@ -94,8 +94,25 @@ sudo make install
 git clone https://github.com/a-parhom/LightlyShaders
 cd LightlyShaders;
 mkdir qt5build; cd qt5build; cmake ../ -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install && (kwin_x11 --replace &)
-
 ```
+
+#### Orchis
+
+For plasma:
+- https://store.kde.org/p/1458927/
+- https://github.com/vinceliuice/Orchis-kde
+
+####  QogirLight
+
+For colors:
+- https://store.kde.org/p/1675750
+- https://github.com/vinceliuice/Qogir-kde
+
+#### Fluent
+
+For icons:
+- https://store.kde.org/p/1477945/
+- https://github.com/vinceliuice/Fluent-kde
 
 ### Windows compatibility layer
 
