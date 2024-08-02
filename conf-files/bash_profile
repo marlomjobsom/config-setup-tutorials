@@ -12,7 +12,7 @@ export JPF_ROOT=$HOME/Workspace/cin-master-degree/code/jpf
 export JPF_CORE=$JPF_ROOT/jpf-core
 
 # JetBRains scripts
-export PATH=$PATH:/home/files/marlom/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts
 
 # PS1: Add this line in the same file where the PS1 is originally defined (e.g: .bashrc)
 # export PS1="\[\033[1;91m\]\W\[\033[93m\]\$(__git_ps1)\[\033[00m\] ⇢ "

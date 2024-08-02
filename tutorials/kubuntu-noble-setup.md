@@ -45,7 +45,7 @@ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flath
 ### Configuration
 
 ```shell
-sudo apt install dolphin-plugins filelight i7z printer-driver-all sweeper synaptic system-config-printer -y
+sudo apt install dolphin-plugins filelight partitionmanager i7z printer-driver-all sweeper synaptic system-config-printer -y
 ```
 
 ```shell
