@@ -118,7 +118,7 @@ sudo apt install fsearch plocate zeitgeist autojump -y
 ### Reading & Writing
 
 ```shell
-sudo apt install libreoffice libreoffice-style-sifr libreoffice-l10n-pt-br qpdfview -y
+sudo apt install libreoffice libreoffice-style-sifr libreoffice-l10n-pt-br qpdfview okular -y
 ```
 
 ```shell
