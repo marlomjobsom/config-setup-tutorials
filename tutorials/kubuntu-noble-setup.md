@@ -127,6 +127,7 @@ flatpak --user install flathub \
     org.gnome.gitlab.somas.Apostrophe \
     com.github.johnfactotum.Foliate \
     com.github.geigi.cozy \
+    eu.scarpetta.PDFMixTool \
     md.obsidian.Obsidian -y
 ```
 
