@@ -2,11 +2,6 @@
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND="ag --ignore '*.pyc' --ignore '*.swp' --ignore '~*' --ignore 'node_modules' --ignore 'build' -g ''"
 
-# GOPATH
-export GOROOT=/opt/go
-export GOPATH=$HOME/Workspace/golang
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-
 # JPF
 export JPF_ROOT=$HOME/Workspace/cin-master-degree/code/jpf
 export JPF_CORE=$JPF_ROOT/jpf-core
