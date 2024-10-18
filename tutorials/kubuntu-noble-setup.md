@@ -158,7 +158,8 @@ flatpak --user install flathub \
     org.kde.koko \
     com.github.flxzt.rnote \
     org.audacityteam.Audacity \
-    dev.aunetx.deezer -y
+    dev.aunetx.deezer \
+    org.nickvision.tubeconverter -y
 ```
 
 ### Development
