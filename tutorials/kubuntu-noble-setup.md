@@ -152,6 +152,7 @@ sudo apt install pavucontrol-qt* soundconverter ffmpeg mencoder puddletag mda-lv
 
 ```shell
 flatpak --user install flathub \
+    org.kde.skanlite \
     org.gimp.GIMP \
     org.kde.kasts \
     com.ozmartians.VidCutter \
