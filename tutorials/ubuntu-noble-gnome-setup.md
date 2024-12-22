@@ -3,7 +3,7 @@
 **Version**: [Ubuntu 24.04.1 LTS (noble) 64-bits](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
 **Notebooks**:
 
-* [Samsung Galaxy Book4 Ultra Pro 15.6"](https://www.samsung.com/br/computers/galaxy-book4-ultra/)
+* [Samsung Galaxy Book4 Ultra](https://www.samsung.com/br/computers/galaxy-book4-ultra/)
 
 ## System Upgrade
 
@@ -149,6 +149,7 @@ sudo apt install -y \
 ### Sound
 
 `# TODO`
+
 - https://forum.manjaro.org/t/howto-set-up-the-audio-card-in-samsung-galaxy-book/37090
 - https://askubuntu.com/questions/1243369/sound-card-not-detected-ubuntu-20-04-sof-audio-pci
 
