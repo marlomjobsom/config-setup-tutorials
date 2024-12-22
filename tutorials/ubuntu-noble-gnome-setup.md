@@ -80,6 +80,12 @@ sudo apt install -y \
     gufw
 ```
 
+## AppImages
+
+```shell
+sudo apt install -y libfuse2t64
+```
+
 ## Repositories
 
 ### Flatpak
@@ -145,6 +151,13 @@ sudo apt install -y \
 `# TODO`
 - https://forum.manjaro.org/t/howto-set-up-the-audio-card-in-samsung-galaxy-book/37090
 - https://askubuntu.com/questions/1243369/sound-card-not-detected-ubuntu-20-04-sof-audio-pci
+
+
+### Nvidia
+
+```shell
+sudo apt install -y nvidia-cuda-toolkit
+```
 
 ### Printer
 
@@ -334,6 +347,14 @@ sudo apt install -y \
     wmdocker \
     docker-compose
 sudo gpasswd -a $USER docker
+
+sudo mkdir -p /home/docker-data
+sudo service docker stop
+sudo mv /var/lib/docker /home/docker-data
+printf '{"data-root": "/home/docker-data/docker"}' | sudo tee /etc/docker/daemon.json
+sudo service docker start
+sudo service docker status
+docker info -f '{{ .DockerRootDir}}'
 ```
 
 ### Wireshark
