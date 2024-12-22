@@ -152,7 +152,6 @@ sudo apt install -y \
 - https://forum.manjaro.org/t/howto-set-up-the-audio-card-in-samsung-galaxy-book/37090
 - https://askubuntu.com/questions/1243369/sound-card-not-detected-ubuntu-20-04-sof-audio-pci
 
-
 ### Nvidia
 
 ```shell
@@ -203,9 +202,11 @@ sudo apt install -y \
     plocate \
     zeitgeist \
     autojump \
-    gnome-sushi \
     gnome-calendar \
     gnome-clocks
+
+flathub --user install -y \
+    io.github.Qalculate.qalculate-qt
 ```
 
 ### `autojump`
@@ -240,8 +241,11 @@ flatpak --user install flathub -y \
     com.calibre_ebook.calibre \
     org.gnome.gitlab.somas.Apostrophe \
     com.github.johnfactotum.Foliate \
-    com.github.geigi.cozy \
-    md.obsidian.Obsidian
+    eu.scarpetta.PDFMixTool \
+
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb
+sudo dpkg -i obsidian_1.7.7_amd64.deb
+rm obsidian_1.7.7_amd64.deb
 ```
 
 ## Dictionary
@@ -278,17 +282,15 @@ sudo apt install -y \
 
 ```shell
 flatpak --user install flathub -y \
-    org.freac.freac \
     org.nickvision.tubeconverter \
-    com.github.vkohaupt.vokoscreenNG \
     org.gimp.GIMP \
     org.gnome.Loupe \
     org.gnome.gitlab.YaLTeR.VideoTrimmer \
     io.gitlab.adhami3310.Footage \
     org.audacityteam.Audacity \
     org.gnome.Lollypop \
-    org.gnome.Podcasts \
-    com.github.flxzt.rnote
+    com.github.flxzt.rnote \
+    com.github.geigi.cozy
 ```
 
 ## Network
@@ -306,6 +308,7 @@ sudo apt install -y \
 ```shell
 curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb
 sudo dpkg -i rclone-current-linux-amd64.deb
+rm rclone-current-linux-amd64.deb
 ```
 
 ## Android
@@ -331,12 +334,12 @@ sudo apt install -y \
     git \
     openjdk-21-jdk \
     openjdk-21-jdk-headless \
-    openssh-server \
-    zeal
+    openssh-server
 ```
 
 ```shell
 flatpak --user install flathub -y \
+    org.zealdocs.Zeal \
     com.getpostman.Postman
 ```
 
@@ -381,9 +384,8 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo 'export PYTHON_CONFIGURE_OPTS="--enable-shared"' >> ~/.bashrc
 source ~/.bashrc
-pyenv install 2.7.18
-pyenv install 3.10.4
-pyenv global 3.10.4
+pyenv install 3.12.7
+pyenv global 3.12.7
 ```
 
 ### `poetry`
@@ -398,16 +400,20 @@ poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install --lts
-npm install -g yarn electron
-sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/node /usr/bin/node
-sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/npm /usr/bin/npm
-sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/yarn
-sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/electron
+npm install -g \
+    yarn \
+    electron
 
 printf "\n# NVM\n" >> ~/.bashrc 
 printf 'export NVM_DIR="$HOME/.nvm"\n' >> ~/.bashrc 
 printf '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm\n' >> ~/.bashrc 
-printf '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion\n' >> ~/.bashrc 
+printf '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion\n' >> ~/.bashrc
+source ~/.bashrc
+
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/node /usr/bin/node
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/npm /usr/bin/npm
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/yarn
+sudo ln -s $HOME/.nvm/versions/node/$(nvm current)/bin/electron /usr/bin/electron 
 ```
 
 ### `jEnv`
