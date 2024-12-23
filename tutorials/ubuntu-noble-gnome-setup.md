@@ -186,9 +186,9 @@ sudo apt install wine -y
 ## Communication
 
 ```shell
-flatpak --user install flathub \
+flatpak --user install flathub -y \
     org.telegram.desktop \
-    io.github.mimbrero.WhatsAppDesktop -y
+    com.rtosta.zapzap
 ```
 
 ## Productivity
