@@ -34,6 +34,7 @@ sudo apt install -y \
     libssl-dev \
     libxml2-dev \
     libxmlsec1-dev \
+    llvm \
     python3-pip \
     python3-pip-whl \
     python3-setuptools-whl \
