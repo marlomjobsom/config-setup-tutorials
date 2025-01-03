@@ -252,6 +252,9 @@ sudo dnf install -y \
     openh264 \
     puddletag \
     vlc
+
+# Fix haruna startup
+sudo sed -i 's/Exec=haruna\ \%u/Exec=export QT_QPA_PLATFORM=xcb;haruna\ \%u/g' /usr/share/applications/org.kde.haruna.desktop
 ```
 
 ```shell
