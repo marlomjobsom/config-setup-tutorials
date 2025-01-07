@@ -1,4 +1,4 @@
-# Ubuntu 24.04 LTS (noble) 64-bits Setup
+# Feedora 41 KDE 64-bits Setup
 
 **Version**:
 
