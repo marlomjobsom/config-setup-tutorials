@@ -131,13 +131,13 @@ sudo ipu6-driver-select proprietary
 - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/
 
 ```shell
-sudo dnf install akmod-nvidia -y
-
-# `# TODO`
-# sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/cuda-fedora39.repo
-# sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora40/x86_64/cuda-fedora40.repo
-# sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
-# sudo dnf install -y cuda-toolkit nvidia-container-toolkit nvidia-settings nvidia-gpu-firmware xorg-x11-drv-nvidia-cuda nvidia-driver nvidia-driver-cuda
+sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
+sudo dnf install -y \
+    nvidia-container-toolkit \
+    nvidia-driver \
+    nvidia-gpu-firmware \
+    nvidia-settings \
+    xorg-x11-drv-nvidia-cuda
 ```
 
 ## Styling
