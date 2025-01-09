@@ -259,6 +259,7 @@ sudo sed -i 's/Exec=haruna\ \%u/Exec=export QT_QPA_PLATFORM=xcb;haruna\ \%u/g' /
 
 ```shell
 flatpak --user install flathub -y \
+    org.kde.skanlite \
     org.nickvision.tubeconverter \
     org.gimp.GIMP \
     org.gnome.Loupe \
