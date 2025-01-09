@@ -95,6 +95,17 @@ flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/fl
 dnf copr enable cboxdoerfer/fsearch
 ```
 
+## Configuration
+
+```shell
+sudo dnf install -y \
+    system-config-printer
+
+flatpak --user install flathub -y \
+    com.github.tchx84.Flatseal \
+    io.github.flattool.Warehouse
+```
+
 ## Firmwares/Drivers
 
 ```shell
