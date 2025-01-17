@@ -343,9 +343,14 @@ flatpak --user install flathub -y \
 ### Docker
 
 ```shell
+sudo dnf -y install dnf-plugins-core
+sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y \
-    wmdocker \
-    docker-compose
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-compose-plugin
 sudo gpasswd -a $USER docker
 
 sudo mkdir -p /home/docker-data
@@ -353,8 +358,7 @@ sudo service docker stop
 sudo mv /var/lib/docker /home/docker-data
 sudo mkdir -p /etc/docker/
 printf '{"data-root": "/home/docker-data/docker"}' | sudo tee /etc/docker/daemon.json
-sudo service docker start
-sudo service docker status
+sudo systemctl enable --now docker
 docker info -f '{{ .DockerRootDir}}'
 ```
 
