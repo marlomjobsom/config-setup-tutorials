@@ -32,6 +32,7 @@ sudo dnf install -y \
     kernel-headers \
     kf6-kcmutils-devel \
     kf6-kconfigwidgets-devel \
+    kf6-ki18n-devel \
     kwin-devel \
     libepoxy-devel \
     libffi-devel \

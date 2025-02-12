@@ -3,6 +3,7 @@
 	email = marlomjobsom@gmail.com
 [push]
 	default = simple
+	followTags = true
 [alias]
 	alog = log --decorate --oneline --all --graph
 [core]
