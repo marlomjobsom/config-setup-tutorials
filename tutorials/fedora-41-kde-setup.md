@@ -42,6 +42,7 @@ sudo dnf install -y \
     make \
     openssl-devel \
     pkgconfig \
+    prename \
     qt6-qtbase-private-devel \
     readline-devel \
     sqlite \
