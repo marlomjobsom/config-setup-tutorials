@@ -139,8 +139,6 @@ sudo ipu6-driver-select proprietary
 - https://negativo17.org/nvidia-driver/
 - https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64
 - https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#fedora
-- https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/
-- https://developer.download.nvidia.com/compute/cuda/repos/fedora40/x86_64/
 - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/
 
 ```shell
@@ -340,6 +338,19 @@ sudo dnf install -y \
 flatpak --user install flathub -y \
     org.zealdocs.Zeal \
     com.getpostman.Postman
+```
+
+### Podman
+
+```shell
+sudo dnf -y install podman podman-machine
+
+# Enable Nvidia GPU access to podman containers
+sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
+sudo setsebool -P container_use_devices true
+
+# Verification
+podman run --rm --device nvidia.com/gpu=all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 ```
 
 ### Docker
