@@ -133,22 +133,35 @@ sudo ipu6-driver-select proprietary
 - https://forum.manjaro.org/t/howto-set-up-the-audio-card-in-samsung-galaxy-book/37090
 - https://askubuntu.com/questions/1243369/sound-card-not-detected-ubuntu-20-04-sof-audio-pci
 
-### Nvidia
-
-- https://www.nvidia.com/en-us/drivers/unix/
-- https://negativo17.org/nvidia-driver/
-- https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64
-- https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#fedora
-- https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/
+### Nvidia Drivers
 
 ```shell
 sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
 sudo dnf install -y \
-    nvidia-container-toolkit \
     nvidia-driver \
     nvidia-gpu-firmware \
     nvidia-settings \
+```
+
+### Nvidia Cuda
+
+```shell
+sudo dnf install -y \
+    nvidia-container-toolkit \
     xorg-x11-drv-nvidia-cuda
+```
+
+### Nvidia cuDNN
+
+```shell
+aria2c https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-9.10.2.21_cuda12-archive.tar.xz
+tar xvf cudnn-linux-x86_64-9.10.2.21_cuda12-archive.tar.xz 
+sudo cp ./cudnn-linux-x86_64-9.10.2.21_cuda12-archive/include/cudnn*h /usr/local/cuda/include
+sudo cp -P ./cudnn-linux-x86_64-9.10.2.21_cuda12-archive/lib/libcudnn* /usr/local/cuda/lib64 
+sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+printf '\n# CUDNN\n' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64/' >> ~/.bashrc
+rm -rf cudnn-linux-x86_64-9.10.2.21_cuda12-archive.tar.xz cudnn-linux-x86_64-9.10.2.21_cuda12-archive
 ```
 
 ## Styling
