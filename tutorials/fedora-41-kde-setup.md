@@ -34,6 +34,8 @@ sudo dnf install -y \
     kf6-kconfigwidgets-devel \
     kf6-ki18n-devel \
     kwin-devel \
+    libdrm-devel \
+    libpciaccess-devel \
     libepoxy-devel \
     libffi-devel \
     libglvnd-devel \
