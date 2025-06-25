@@ -21,6 +21,7 @@ sudo dnf install -y \
     acpid \
     bzip2 \
     bzip2-devel \
+    ccache \
     cmake \
     dkms \
     extra-cmake-modules \
@@ -151,6 +152,9 @@ sudo dnf install -y \
 sudo dnf install -y \
     nvidia-container-toolkit \
     xorg-x11-drv-nvidia-cuda
+printf '\n# NVIDIA CUDA TOOLKIT\n' >> $HOME/.bashrc
+echo 'export CMAKE_CUDA_COMPILER=/usr/local/cuda/bin/' >> $HOME/.bashrc
+echo 'export PATH=$CMAKE_CUDA_COMPILER/nvcc:$CMAKE_CUDA_COMPILER:$PATH' >> $HOME/.bashrc
 ```
 
 ### Nvidia cuDNN
