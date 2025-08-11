@@ -70,10 +70,12 @@ sudo dnf install -y \
 
 ```shell
 sudo dnf install -y \
-    wget \
     aria2 \
     curl \
-    dnfdragora-gui
+    dnfdragora-gui \
+    flatpak \
+    plasma-discover-flatpak \
+    wget
 ```
 
 ## Repositories
@@ -85,12 +87,9 @@ sudo dnf install -y \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-### Flatpak
+### Flatpak: Flathub
 
 ```shell
-sudo dnf install -y \
-    flatpak \
-    plasma-discover-flatpak
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 

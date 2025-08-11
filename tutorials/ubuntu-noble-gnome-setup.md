@@ -164,7 +164,12 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
 
 sudo apt install -y \
     nvidia-cuda-toolkit \
-    nvidia-container-toolkit
+    nvidia-container-toolkit-base \
+    nvidia-container-toolkit \
+    nvidia-container-runtime \
+    libnvidia-container-dev \
+    libnvidia-container1 \
+    libnvidia-container-tools
 ```
 
 ### Printer
