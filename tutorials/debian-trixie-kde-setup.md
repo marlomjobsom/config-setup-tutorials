@@ -12,8 +12,8 @@
 
 ```shell
 sudo su -c "echo '# base' > /etc/apt/sources.list"
-sudo su -c "echo 'deb http://deb.debian.org/debian/ trixie main non-free-firmware' >> /etc/apt/sources.list"
-sudo su -c "echo 'deb-src http://deb.debian.org/debian/ trixie main non-free-firmware' >> /etc/apt/sources.list"
+sudo su -c "echo 'deb http://deb.debian.org/debian/ trixie main non-free-firmware contrib non-free' >> /etc/apt/sources.list"
+sudo su -c "echo 'deb-src http://deb.debian.org/debian/ trixie main non-free-firmware contrib non-free' >> /etc/apt/sources.list"
 
 sudo su -c "echo -e '\n# security' >> /etc/apt/sources.list"
 sudo su -c "echo 'deb http://security.debian.org/debian-security trixie-security main non-free-firmware' >> /etc/apt/sources.list"
@@ -44,6 +44,7 @@ sudo apt-get install -y \
     git \
     kinit-dev \
     kwin-dev \
+    libayatana-appindicator3-1 \
     libasound2-dev \
     libavutil-dev \
     libbz2-dev \
@@ -58,6 +59,8 @@ sudo apt-get install -y \
     libswscale-dev \
     libturbojpeg0-dev \
     libusbmuxd-dev \
+    linux-headers-amd64 \
+    linux-headers-`uname -r` \
     make \
     python3-dev \
     python3-tk \
@@ -122,27 +125,54 @@ sudo fwupdmgr get-devices
 sudo fwupdmgr refresh --force 
 sudo fwupdmgr get-updates
 sudo fwupdmgr update
+
+sudo apt-get install -y \
+    firmware-linux \
+    firmware-misc-nonfree
 ```
 
 ### Camera
 
-`# TODO`
+`# TODO: https://github.com/intel/ipu6-drivers/issues/329`
 
 ### Sound
 
 `# TODO`
 
+```shell
+sudo apt-get install -y \
+    firmware-sof-signed
+```
+
 ### Nvidia Drivers
 
-`# TODO: it does not work yet: https://developer.download.nvidia.com/compute/cuda/repos/`
+- https://wiki.debian.org/NvidiaGraphicsDrivers#Debian_13_.22Trixie.22
+- https://wiki.debian.org/NvidiaGraphicsDrivers#wayland-modesetting
+- https://developer.download.nvidia.com/compute/cuda/repos/
+- https://docs.nvidia.com/deeplearning/cudnn/installation/latest/linux.html
+
+```shell
+sudo apt-get install -y \
+    firmware-nvidia-graphics \
+    firmware-nvidia-gsp \
+    nvidia-driver \
+    nvidia-kernel-dkms
+```
 
 ### Nvidia Cuda
 
-`# TODO: it does not work yet: https://developer.download.nvidia.com/compute/cuda/repos/`
+```shell
+sudo apt-get install -y \
+  nvidia-cuda-dev \
+  nvidia-cuda-toolkit
+```
 
 ### Nvidia cuDNN
 
-`# TODO: it does not work yet: https://developer.download.nvidia.com/compute/cuda/repos/`
+```shell
+sudo apt-get install -y \
+    nvidia-cudnn
+```
 
 ## Styling
 
@@ -169,7 +199,12 @@ sudo make install
 ## Windows compatibility layer
 
 ```shell
-sudo apt-get install -y wine
+sudo apt-get install -y \
+    ca-certificates \
+    cabextract \
+    xfonts-utils \
+    ttf-mscorefonts-installer \
+    wine
 ```
 
 ## Communication
